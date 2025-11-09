@@ -13,8 +13,6 @@ import {
 
 const DUPLICATE_ERROR = "Drivers must be unique across the top ten positions.";
 const MISSING_ERROR = "Please complete the full top ten finishing order.";
-const FASTEST_LAP_ERROR = "Fastest lap points are only awarded to drivers finishing inside the top ten.";
-
 export default function HomePage() {
   const { indexes, driverStandings: baseDriverStandings, constructorStandings: baseConstructorStandings } = useMemo(() => {
     const indexes = buildSeasonIndexes(seasonData);
@@ -30,7 +28,6 @@ export default function HomePage() {
     upcomingRaces[0] ? String(upcomingRaces[0].round) : ""
   );
   const [finishingOrder, setFinishingOrder] = useState(() => Array(POINTS_TABLE.length).fill(""));
-  const [fastestLapSelection, setFastestLapSelection] = useState("");
   const [duplicateIds, setDuplicateIds] = useState([]);
   const [formError, setFormError] = useState("");
   const [result, setResult] = useState(null);
@@ -63,15 +60,6 @@ export default function HomePage() {
     });
   };
 
-  const handleFastestLapChange = (value) => {
-    setFastestLapSelection(value);
-    if (value && !finishingOrder.includes(value)) {
-      setFormError(FASTEST_LAP_ERROR);
-    } else if (formError === FASTEST_LAP_ERROR) {
-      setFormError("");
-    }
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!upcomingRaces.length) {
@@ -90,27 +78,16 @@ export default function HomePage() {
       return;
     }
 
-    if (fastestLapSelection && !finishingOrder.includes(fastestLapSelection)) {
-      setFormError(FASTEST_LAP_ERROR);
-      return;
-    }
-
-    const simulation = projectSimulation(
-      baseDriverStandings,
-      baseConstructorStandings,
-      finishingOrder,
-      fastestLapSelection || null
-    );
+    const simulation = projectSimulation(baseDriverStandings, baseConstructorStandings, finishingOrder);
 
     const race = upcomingRaces.find((item) => item.round === Number(selectedRaceRound));
 
-    setResult({ ...simulation, race, fastestLapDriver: fastestLapSelection || null });
+    setResult({ ...simulation, race });
     setFormError("");
   };
 
   const handleReset = () => {
     setFinishingOrder(Array(POINTS_TABLE.length).fill(""));
-    setFastestLapSelection("");
     setDuplicateIds([]);
     setFormError("");
     setResult(null);
@@ -286,12 +263,9 @@ export default function HomePage() {
                   })}
                 </tbody>
               </table>
-              <div className="race-details__footer">
-                {activeRace.fastestLap?.driverId ? (
-                  <>Fastest lap: {resolveDriverName(activeRace.fastestLap.driverId)} (+
-                  {formatPoints(activeRace.fastestLap.points)} pt)</>
-                ) : null}
-              </div>
+              {activeRace.summary && (
+                <div className="race-details__footer">{activeRace.summary}</div>
+              )}
             </article>
           )}
         </section>
@@ -320,21 +294,6 @@ export default function HomePage() {
                   ) : (
                     <option value="">Season complete</option>
                   )}
-                </select>
-              </label>
-              <label className="field">
-                <span className="field__label">Fastest lap bonus</span>
-                <select
-                  value={fastestLapSelection}
-                  onChange={(event) => handleFastestLapChange(event.target.value)}
-                  disabled={!upcomingRaces.length}
-                >
-                  <option value="">No fastest lap</option>
-                  {driversForSelect.map((driver) => (
-                    <option key={driver.id} value={driver.id}>
-                      {driver.name} ({driver.code})
-                    </option>
-                  ))}
                 </select>
               </label>
             </div>
@@ -435,8 +394,7 @@ export default function HomePage() {
                 {result?.summary && result.race ? (
                   <>
                     After a simulated <strong>{result.race.name}</strong>, <strong>{result.summary.leader}</strong> would lead by
-                    <strong> {formatPoints(result.summary.gap)} pts</strong> over {result.summary.chaser}
-                    {result.fastestLapDriver ? ` (fastest lap for ${resolveDriverName(result.fastestLapDriver)})` : ""}.
+                    <strong> {formatPoints(result.summary.gap)} pts</strong> over {result.summary.chaser}.
                   </>
                 ) : result?.summary ? (
                   <>Simulation complete.</>
