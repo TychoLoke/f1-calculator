@@ -14,9 +14,9 @@ const titillium = Titillium_Web({
 });
 
 export const metadata = {
-  title: "2025 Formula 1 Championship Hub",
+  title: "2025 Formula One World Championship Briefing",
   description:
-    "Track the 2025 Formula 1 championship with live standings, race history and interactive simulations."
+    "An intelligence hub covering the 2025 Formula One season with standings, race chronology and regulation insights."
 };
 
 export default function RootLayout({ children }) {

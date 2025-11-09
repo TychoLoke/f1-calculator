@@ -1,1026 +1,429 @@
 {
   "season": 2025,
-  "currentRound": 21,
-  "currentRace": "S\u00e3o Paulo Grand Prix",
   "lastUpdated": "2025-11-09",
-  "drivers": [
-    {
-      "id": "lando-norris",
-      "code": "NOR",
-      "number": 4,
+  "metadata": {
+    "driverLeader": {
       "name": "Lando Norris",
-      "team": "McLaren Formula 1 Team",
-      "country": "United Kingdom"
+      "team": "McLaren-Mercedes",
+      "points": 390
     },
-    {
-      "id": "oscar-piastri",
-      "code": "PIA",
-      "number": 81,
-      "name": "Oscar Piastri",
-      "team": "McLaren Formula 1 Team",
-      "country": "Australia"
+    "constructorChampion": {
+      "team": "McLaren-Mercedes",
+      "points": 756,
+      "clinchedAt": {
+        "round": 18,
+        "grandPrix": "Singapore Grand Prix",
+        "date": "2025-10-05"
+      }
     },
-    {
-      "id": "max-verstappen",
-      "code": "VER",
-      "number": 1,
-      "name": "Max Verstappen",
-      "team": "Oracle Red Bull Racing",
-      "country": "Netherlands"
-    },
-    {
-      "id": "yuki-tsunoda",
-      "code": "TSU",
-      "number": 22,
-      "name": "Yuki Tsunoda",
-      "team": "Oracle Red Bull Racing",
-      "country": "Japan"
-    },
-    {
-      "id": "liam-lawson",
-      "code": "LAW",
-      "number": 30,
-      "name": "Liam Lawson",
-      "team": "Visa Cash App Racing Bulls F1 Team",
-      "country": "New Zealand"
-    },
-    {
-      "id": "george-russell",
-      "code": "RUS",
-      "number": 63,
-      "name": "George Russell",
-      "team": "Mercedes-AMG Petronas F1 Team",
-      "country": "United Kingdom"
-    },
-    {
-      "id": "kimi-antonelli",
-      "code": "ANT",
-      "number": 12,
-      "name": "Kimi Antonelli",
-      "team": "Mercedes-AMG Petronas F1 Team",
-      "country": "Italy"
-    },
-    {
-      "id": "charles-leclerc",
-      "code": "LEC",
-      "number": 16,
-      "name": "Charles Leclerc",
-      "team": "Scuderia Ferrari HP",
-      "country": "Monaco"
-    },
-    {
-      "id": "lewis-hamilton",
-      "code": "HAM",
-      "number": 44,
-      "name": "Lewis Hamilton",
-      "team": "Scuderia Ferrari HP",
-      "country": "United Kingdom"
-    },
-    {
-      "id": "fernando-alonso",
-      "code": "ALO",
-      "number": 14,
-      "name": "Fernando Alonso",
-      "team": "Aston Martin Aramco F1 Team",
-      "country": "Spain"
-    },
-    {
-      "id": "lance-stroll",
-      "code": "STR",
-      "number": 18,
-      "name": "Lance Stroll",
-      "team": "Aston Martin Aramco F1 Team",
-      "country": "Canada"
-    },
-    {
-      "id": "pierre-gasly",
-      "code": "GAS",
-      "number": 10,
-      "name": "Pierre Gasly",
-      "team": "BWT Alpine F1 Team",
-      "country": "France"
-    },
-    {
-      "id": "franco-colapinto",
-      "code": "COL",
-      "number": 43,
-      "name": "Franco Colapinto",
-      "team": "BWT Alpine F1 Team",
-      "country": "Argentina"
-    },
-    {
-      "id": "jack-doohan",
-      "code": "DOO",
-      "number": 7,
-      "name": "Jack Doohan",
-      "team": "BWT Alpine F1 Team",
-      "country": "Australia"
-    },
-    {
-      "id": "esteban-ocon",
-      "code": "OCO",
-      "number": 31,
-      "name": "Esteban Ocon",
-      "team": "MoneyGram Haas F1 Team",
-      "country": "France"
-    },
-    {
-      "id": "oliver-bearman",
-      "code": "BEA",
-      "number": 87,
-      "name": "Oliver Bearman",
-      "team": "MoneyGram Haas F1 Team",
-      "country": "United Kingdom"
-    },
-    {
-      "id": "nico-hulkenberg",
-      "code": "HUL",
-      "number": 27,
-      "name": "Nico H\u00fclkenberg",
-      "team": "Stake F1 Team Kick Sauber",
-      "country": "Germany"
-    },
-    {
-      "id": "gabriel-bortoleto",
-      "code": "BOR",
-      "number": 5,
-      "name": "Gabriel Bortoleto",
-      "team": "Stake F1 Team Kick Sauber",
-      "country": "Brazil"
-    },
-    {
-      "id": "alexander-albon",
-      "code": "ALB",
-      "number": 23,
-      "name": "Alexander Albon",
-      "team": "Atlassian Williams Racing",
-      "country": "Thailand"
-    },
-    {
-      "id": "carlos-sainz",
-      "code": "SAI",
-      "number": 55,
-      "name": "Carlos Sainz Jr.",
-      "team": "Atlassian Williams Racing",
-      "country": "Spain"
-    },
-    {
-      "id": "isack-hadjar",
-      "code": "HAD",
-      "number": 6,
-      "name": "Isack Hadjar",
-      "team": "Visa Cash App Racing Bulls F1 Team",
-      "country": "France"
-    }
+    "anniversary": "Formula One celebrated its 75th anniversary in 2025 with commemorative branding through the Hungarian Grand Prix."
+  },
+  "seasonSummary": [
+    "The 2025 championship spans twenty-four Grands Prix from the Australian opener in March to the Abu Dhabi finale in December.",
+    "McLaren-Mercedes secured back-to-back Constructors' titles and their tenth overall by sealing the crown in Singapore.",
+    "Lando Norris holds a 24-point advantage over teammate Oscar Piastri after the São Paulo Grand Prix, topping the standings on 390 points.",
+    "The 2025 campaign closes the hybrid power unit and ground-effect era ahead of the 2026 regulation shift that removes the MGU-H and introduces active aerodynamics.",
+    "Renault will bow out as an engine supplier at the end of the season as Alpine transitions away from in-house power units."
   ],
-  "constructors": [
-    {
-      "id": "mclaren",
-      "name": "McLaren Formula 1 Team",
-      "country": "United Kingdom"
-    },
-    {
-      "id": "red-bull",
-      "name": "Oracle Red Bull Racing",
-      "country": "Austria"
-    },
-    {
-      "id": "mercedes",
-      "name": "Mercedes-AMG Petronas F1 Team",
-      "country": "Germany"
-    },
-    {
-      "id": "ferrari",
-      "name": "Scuderia Ferrari HP",
-      "country": "Italy"
-    },
-    {
-      "id": "aston-martin",
-      "name": "Aston Martin Aramco F1 Team",
-      "country": "United Kingdom"
-    },
-    {
-      "id": "alpine",
-      "name": "BWT Alpine F1 Team",
-      "country": "France"
-    },
-    {
-      "id": "haas",
-      "name": "MoneyGram Haas F1 Team",
-      "country": "United States"
-    },
-    {
-      "id": "sauber",
-      "name": "Stake F1 Team Kick Sauber",
-      "country": "Switzerland"
-    },
-    {
-      "id": "williams",
-      "name": "Atlassian Williams Racing",
-      "country": "United Kingdom"
-    },
-    {
-      "id": "racing-bulls",
-      "name": "Visa Cash App Racing Bulls F1 Team",
-      "country": "Italy"
-    }
+  "regulationHighlights": {
+    "technical": [
+      "The minimum driver weight allowance increased to 82 kg, lifting the car minimum weight to 800 kg to better accommodate taller competitors.",
+      "A driver cooling kit can now be mandated in declared heat hazard events above 30.5 °C, with a 5 kg weight allowance when fitted.",
+      "Rear-wing slot gaps were tightened to 9.4–13 mm and new deflection tests clamp down on flexible aerodynamic solutions.",
+      "Teams are no longer limited in the number of gearboxes used across the season owing to improved reliability."
+    ],
+    "sporting": [
+      "The point for fastest lap has been removed, refocusing scoring on race finishing positions and sprint results.",
+      "Each car must now field a rookie driver twice across the season's opening practice sessions.",
+      "Testing of previous cars is capped at 20 days, with championship drivers limited to 1,000 km across four days of running.",
+      "Drivers' Championship standings set the starting grid when qualifying cannot be completed, with stewards only stepping in when necessary.",
+      "Grid procedures were refined so withdrawals up to 75 minutes before lights out lead to the grid being closed one hour before the start."
+    ],
+    "conduct": [
+      "Stricter penalties address offensive language or behaviour, escalating from heavy fines to suspensions for repeat misconduct.",
+      "The FIA published detailed driving standards guidance ahead of the Austrian Grand Prix to clarify expectations during wheel-to-wheel battles."
+    ]
+  },
+  "driverMovements": [
+    "Lewis Hamilton left Mercedes after twelve seasons to join Ferrari, replacing Carlos Sainz Jr., who moved to Williams on a multi-year deal.",
+    "Mercedes promoted junior Kimi Antonelli to partner George Russell, ushering the Formula 2 graduate into his rookie F1 campaign.",
+    "Haas rebuilt its line-up with Esteban Ocon and rookie Oliver Bearman after Nico Hülkenberg departed for Sauber and Kevin Magnussen left the team.",
+    "Red Bull replaced Sergio Pérez with Liam Lawson, later swapping Lawson and Yuki Tsunoda between the works and Racing Bulls entries from the Japanese round onward.",
+    "Alpine handed Jack Doohan a race seat for the opening rounds before Franco Colapinto took over from the Emilia Romagna Grand Prix." 
   ],
-  "races": [
+  "teams": [
     {
-      "round": 1,
-      "name": "Australian Grand Prix",
-      "circuit": "Albert Park Circuit",
-      "date": "2025-03-16",
-      "winner": "lando-norris",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "lando-norris",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "max-verstappen",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "george-russell",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Norris fended off Verstappen to win McLaren's first Australian GP since 2012."
+      "entrant": "BWT Alpine F1 Team",
+      "constructor": "Alpine-Renault",
+      "chassis": "A525",
+      "powerUnit": "Renault E-Tech RE25",
+      "drivers": [
+        { "number": 10, "name": "Pierre Gasly", "rounds": "1-24" },
+        { "number": 7, "name": "Jack Doohan", "rounds": "1-6" },
+        { "number": 43, "name": "Franco Colapinto", "rounds": "7-24" }
+      ]
     },
     {
-      "round": 2,
-      "name": "Chinese Grand Prix",
-      "circuit": "Shanghai International Circuit",
-      "date": "2025-03-23",
-      "winner": "oscar-piastri",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "oscar-piastri",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "lando-norris",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "george-russell",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Piastri led home a McLaren 1-2 in Shanghai."
+      "entrant": "Aston Martin Aramco F1 Team",
+      "constructor": "Aston Martin Aramco-Mercedes",
+      "chassis": "AMR25",
+      "powerUnit": "Mercedes-AMG F1 M16",
+      "drivers": [
+        { "number": 14, "name": "Fernando Alonso", "rounds": "1-24" },
+        { "number": 18, "name": "Lance Stroll", "rounds": "1-24" }
+      ]
     },
     {
-      "round": 3,
-      "name": "Japanese Grand Prix",
-      "circuit": "Suzuka Circuit",
-      "date": "2025-04-06",
-      "winner": "max-verstappen",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "max-verstappen",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "lando-norris",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "oscar-piastri",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Verstappen returned to victory with Red Bull's first win of the year."
+      "entrant": "Scuderia Ferrari HP",
+      "constructor": "Ferrari",
+      "chassis": "SF-25",
+      "powerUnit": "Ferrari 066/15",
+      "drivers": [
+        { "number": 16, "name": "Charles Leclerc", "rounds": "1-24" },
+        { "number": 44, "name": "Lewis Hamilton", "rounds": "1-24" }
+      ]
     },
     {
-      "round": 4,
-      "name": "Bahrain Grand Prix",
-      "circuit": "Bahrain International Circuit",
-      "date": "2025-04-13",
-      "winner": "oscar-piastri",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "oscar-piastri",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "george-russell",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "lando-norris",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Electrical gremlins could not stop Russell chasing Piastri home under the lights."
+      "entrant": "MoneyGram Haas F1 Team",
+      "constructor": "Haas-Ferrari",
+      "chassis": "VF-25",
+      "powerUnit": "Ferrari 066/15",
+      "drivers": [
+        { "number": 31, "name": "Esteban Ocon", "rounds": "1-24" },
+        { "number": 87, "name": "Oliver Bearman", "rounds": "1-24" }
+      ]
     },
     {
-      "round": 5,
-      "name": "Saudi Arabian Grand Prix",
-      "circuit": "Jeddah Corniche Circuit",
-      "date": "2025-04-20",
-      "winner": "oscar-piastri",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "oscar-piastri",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "max-verstappen",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "charles-leclerc",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Piastri took the points lead with a faultless drive in Jeddah."
+      "entrant": "Stake F1 Team Kick Sauber",
+      "constructor": "Kick Sauber-Ferrari",
+      "chassis": "C45",
+      "powerUnit": "Ferrari 066/15",
+      "drivers": [
+        { "number": 5, "name": "Gabriel Bortoleto", "rounds": "1-24" },
+        { "number": 27, "name": "Nico Hülkenberg", "rounds": "1-24" }
+      ]
     },
     {
-      "round": 6,
-      "name": "Miami Grand Prix",
-      "circuit": "Miami International Autodrome",
-      "date": "2025-05-04",
-      "winner": "oscar-piastri",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "oscar-piastri",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "lando-norris",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "george-russell",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "McLaren mastered the late safety car to secure another 1-2 in Miami."
+      "entrant": "McLaren Formula 1 Team",
+      "constructor": "McLaren-Mercedes",
+      "chassis": "MCL39",
+      "powerUnit": "Mercedes-AMG F1 M16",
+      "drivers": [
+        { "number": 4, "name": "Lando Norris", "rounds": "1-24" },
+        { "number": 81, "name": "Oscar Piastri", "rounds": "1-24" }
+      ]
     },
     {
-      "round": 7,
-      "name": "Emilia Romagna Grand Prix",
-      "circuit": "Imola Circuit",
-      "date": "2025-05-18",
-      "winner": "max-verstappen",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "max-verstappen",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "oscar-piastri",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "lando-norris",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Verstappen delivered victory in Red Bull's 400th start at Imola."
+      "entrant": "Mercedes-AMG Petronas F1 Team",
+      "constructor": "Mercedes",
+      "chassis": "F1 W16",
+      "powerUnit": "Mercedes-AMG F1 M16",
+      "drivers": [
+        { "number": 12, "name": "Kimi Antonelli", "rounds": "1-24" },
+        { "number": 63, "name": "George Russell", "rounds": "1-24" }
+      ]
     },
     {
-      "round": 8,
-      "name": "Monaco Grand Prix",
-      "circuit": "Circuit de Monaco",
-      "date": "2025-05-25",
-      "winner": "lando-norris",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "lando-norris",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "charles-leclerc",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "oscar-piastri",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Two mandatory pit stops could not stop Norris from conquering the streets of Monaco."
+      "entrant": "Visa Cash App Racing Bulls F1 Team",
+      "constructor": "Racing Bulls-Honda RBPT",
+      "chassis": "VCARB 02",
+      "powerUnit": "Honda RBPTH003",
+      "drivers": [
+        { "number": 6, "name": "Isack Hadjar", "rounds": "1-24" },
+        { "number": 22, "name": "Yuki Tsunoda", "rounds": "1-2" },
+        { "number": 30, "name": "Liam Lawson", "rounds": "3-24" }
+      ]
     },
     {
-      "round": 9,
-      "name": "Spanish Grand Prix",
-      "circuit": "Circuit de Barcelona-Catalunya",
-      "date": "2025-06-01",
-      "winner": "oscar-piastri",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "oscar-piastri",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "lando-norris",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "charles-leclerc",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Piastri executed a flawless home-continent win for McLaren in Spain."
+      "entrant": "Oracle Red Bull Racing",
+      "constructor": "Red Bull Racing-Honda RBPT",
+      "chassis": "RB21",
+      "powerUnit": "Honda RBPTH003",
+      "drivers": [
+        { "number": 1, "name": "Max Verstappen", "rounds": "1-24" },
+        { "number": 30, "name": "Liam Lawson", "rounds": "1-2" },
+        { "number": 22, "name": "Yuki Tsunoda", "rounds": "3-24" }
+      ]
     },
     {
-      "round": 10,
-      "name": "Canadian Grand Prix",
-      "circuit": "Circuit Gilles Villeneuve",
-      "date": "2025-06-15",
-      "winner": "george-russell",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "george-russell",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "max-verstappen",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "kimi-antonelli",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Russell headed a Mercedes 1-3 as Antonelli scored his maiden podium in Canada."
-    },
-    {
-      "round": 11,
-      "name": "Austrian Grand Prix",
-      "circuit": "Red Bull Ring",
-      "date": "2025-06-29",
-      "winner": "lando-norris",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "lando-norris",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "oscar-piastri",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "charles-leclerc",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Norris resisted late pressure from Piastri to win a rain-halted Austrian thriller."
-    },
-    {
-      "round": 12,
-      "name": "British Grand Prix",
-      "circuit": "Silverstone Circuit",
-      "date": "2025-07-06",
-      "winner": "lando-norris",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "lando-norris",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "oscar-piastri",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "nico-hulkenberg",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Silverstone celebrated as Norris won at home and H\u00fclkenberg grabbed a fairy-tale podium."
-    },
-    {
-      "round": 13,
-      "name": "Belgian Grand Prix",
-      "circuit": "Circuit de Spa-Francorchamps",
-      "date": "2025-07-27",
-      "winner": "oscar-piastri",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "oscar-piastri",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "lando-norris",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "charles-leclerc",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Piastri outpaced the field in the wet-dry Spa showdown."
-    },
-    {
-      "round": 14,
-      "name": "Hungarian Grand Prix",
-      "circuit": "Hungaroring",
-      "date": "2025-08-03",
-      "winner": "lando-norris",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "lando-norris",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "oscar-piastri",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "george-russell",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "A bold one-stop call earned Norris victory over his teammate in Budapest."
-    },
-    {
-      "round": 15,
-      "name": "Dutch Grand Prix",
-      "circuit": "Circuit Zandvoort",
-      "date": "2025-08-31",
-      "winner": "oscar-piastri",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "oscar-piastri",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "max-verstappen",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "isack-hadjar",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Piastri sealed a grand chelem at Zandvoort as Hadjar joined the podium club."
-    },
-    {
-      "round": 16,
-      "name": "Italian Grand Prix",
-      "circuit": "Monza Circuit",
-      "date": "2025-09-07",
-      "winner": "max-verstappen",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "max-verstappen",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "lando-norris",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "oscar-piastri",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Verstappen and Red Bull struck back with victory on Ferrari territory."
-    },
-    {
-      "round": 17,
-      "name": "Azerbaijan Grand Prix",
-      "circuit": "Baku City Circuit",
-      "date": "2025-09-21",
-      "winner": "max-verstappen",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "max-verstappen",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "george-russell",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "carlos-sainz",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Russell split the Red Bulls as Sainz delivered Williams a rare podium in Baku."
-    },
-    {
-      "round": 18,
-      "name": "Singapore Grand Prix",
-      "circuit": "Marina Bay Street Circuit",
-      "date": "2025-10-05",
-      "winner": "george-russell",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "george-russell",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "max-verstappen",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "lewis-hamilton",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Mercedes locked out the podium bookends as McLaren sealed the constructors' crown under the lights."
-    },
-    {
-      "round": 19,
-      "name": "United States Grand Prix",
-      "circuit": "Circuit of The Americas",
-      "date": "2025-10-19",
-      "winner": "max-verstappen",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "max-verstappen",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "lando-norris",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "charles-leclerc",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Verstappen dominated Austin as Norris limited the damage for McLaren."
-    },
-    {
-      "round": 20,
-      "name": "Mexico City Grand Prix",
-      "circuit": "Aut\u00f3dromo Hermanos Rodr\u00edguez",
-      "date": "2025-10-26",
-      "winner": "lando-norris",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "lando-norris",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "charles-leclerc",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "max-verstappen",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Norris reclaimed the championship lead with a commanding drive in Mexico City."
-    },
-    {
-      "round": 21,
-      "name": "S\u00e3o Paulo Grand Prix",
-      "circuit": "Aut\u00f3dromo Jos\u00e9 Carlos Pace",
-      "date": "2025-11-09",
-      "winner": "lando-norris",
-      "results": [
-        {
-          "position": 1,
-          "driverId": "lando-norris",
-          "points": 25,
-          "status": "Finished"
-        },
-        {
-          "position": 2,
-          "driverId": "max-verstappen",
-          "points": 18,
-          "status": "Finished"
-        },
-        {
-          "position": 3,
-          "driverId": "lewis-hamilton",
-          "points": 15,
-          "status": "Finished"
-        }
-      ],
-      "summary": "Norris stretched his title advantage with a decisive Interlagos victory."
-    }
-  ],
-  "upcomingRaces": [
-    {
-      "round": 22,
-      "name": "Las Vegas Grand Prix",
-      "date": "2025-11-22"
-    },
-    {
-      "round": 23,
-      "name": "Qatar Grand Prix",
-      "date": "2025-11-30"
-    },
-    {
-      "round": 24,
-      "name": "Abu Dhabi Grand Prix",
-      "date": "2025-12-07"
+      "entrant": "Atlassian Williams Racing",
+      "constructor": "Williams-Mercedes",
+      "chassis": "FW47",
+      "powerUnit": "Mercedes-AMG F1 M16",
+      "drivers": [
+        { "number": 23, "name": "Alexander Albon", "rounds": "1-24" },
+        { "number": 55, "name": "Carlos Sainz Jr.", "rounds": "1-24" }
+      ]
     }
   ],
   "standings": {
     "drivers": [
-      {
-        "id": "lando-norris",
-        "points": 390,
-        "wins": 7,
-        "podiums": 16
-      },
-      {
-        "id": "oscar-piastri",
-        "points": 366,
-        "wins": 7,
-        "podiums": 14
-      },
-      {
-        "id": "max-verstappen",
-        "points": 341,
-        "wins": 5,
-        "podiums": 12
-      },
-      {
-        "id": "george-russell",
-        "points": 276,
-        "wins": 2,
-        "podiums": 8
-      },
-      {
-        "id": "charles-leclerc",
-        "points": 214,
-        "wins": 0,
-        "podiums": 7
-      },
-      {
-        "id": "lewis-hamilton",
-        "points": 148,
-        "wins": 0,
-        "podiums": 2
-      },
-      {
-        "id": "kimi-antonelli",
-        "points": 122,
-        "wins": 0,
-        "podiums": 1
-      },
-      {
-        "id": "alexander-albon",
-        "points": 73,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "nico-hulkenberg",
-        "points": 43,
-        "wins": 0,
-        "podiums": 1
-      },
-      {
-        "id": "isack-hadjar",
-        "points": 43,
-        "wins": 0,
-        "podiums": 1
-      },
-      {
-        "id": "fernando-alonso",
-        "points": 40,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "oliver-bearman",
-        "points": 40,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "carlos-sainz",
-        "points": 38,
-        "wins": 0,
-        "podiums": 1
-      },
-      {
-        "id": "liam-lawson",
-        "points": 36,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "lance-stroll",
-        "points": 32,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "esteban-ocon",
-        "points": 30,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "yuki-tsunoda",
-        "points": 28,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "pierre-gasly",
-        "points": 22,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "gabriel-bortoleto",
-        "points": 19,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "franco-colapinto",
-        "points": 0,
-        "wins": 0,
-        "podiums": 0
-      },
-      {
-        "id": "jack-doohan",
-        "points": 0,
-        "wins": 0,
-        "podiums": 0
-      }
+      { "position": 1, "name": "Lando Norris", "team": "McLaren-Mercedes", "points": 390 },
+      { "position": 2, "name": "Oscar Piastri", "team": "McLaren-Mercedes", "points": 366 },
+      { "position": 3, "name": "Max Verstappen", "team": "Red Bull Racing-Honda RBPT", "points": 341 },
+      { "position": 4, "name": "George Russell", "team": "Mercedes", "points": 276 },
+      { "position": 5, "name": "Charles Leclerc", "team": "Ferrari", "points": 214 },
+      { "position": 6, "name": "Lewis Hamilton", "team": "Ferrari", "points": 148 },
+      { "position": 7, "name": "Kimi Antonelli", "team": "Mercedes", "points": 122 },
+      { "position": 8, "name": "Alexander Albon", "team": "Williams-Mercedes", "points": 73 },
+      { "position": 9, "name": "Nico Hülkenberg", "team": "Kick Sauber-Ferrari", "points": 43 },
+      { "position": 10, "name": "Isack Hadjar", "team": "Racing Bulls-Honda RBPT", "points": 43 },
+      { "position": 11, "name": "Oliver Bearman", "team": "Haas-Ferrari", "points": 40 },
+      { "position": 12, "name": "Fernando Alonso", "team": "Aston Martin Aramco-Mercedes", "points": 40 },
+      { "position": 13, "name": "Carlos Sainz Jr.", "team": "Williams-Mercedes", "points": 38 },
+      { "position": 14, "name": "Liam Lawson", "team": "Red Bull Racing-Honda RBPT / Racing Bulls-Honda RBPT", "points": 36 },
+      { "position": 15, "name": "Lance Stroll", "team": "Aston Martin Aramco-Mercedes", "points": 32 },
+      { "position": 16, "name": "Esteban Ocon", "team": "Haas-Ferrari", "points": 30 },
+      { "position": 17, "name": "Yuki Tsunoda", "team": "Red Bull Racing-Honda RBPT / Racing Bulls-Honda RBPT", "points": 28 },
+      { "position": 18, "name": "Pierre Gasly", "team": "Alpine-Renault", "points": 22 },
+      { "position": 19, "name": "Gabriel Bortoleto", "team": "Kick Sauber-Ferrari", "points": 19 },
+      { "position": 20, "name": "Franco Colapinto", "team": "Alpine-Renault", "points": 0 },
+      { "position": 21, "name": "Jack Doohan", "team": "Alpine-Renault", "points": 0 }
     ],
     "constructors": [
+      { "position": 1, "name": "McLaren-Mercedes", "points": 756 },
+      { "position": 2, "name": "Mercedes", "points": 398 },
+      { "position": 3, "name": "Red Bull Racing-Honda RBPT", "points": 366 },
+      { "position": 4, "name": "Ferrari", "points": 362 },
+      { "position": 5, "name": "Williams-Mercedes", "points": 111 },
+      { "position": 6, "name": "Racing Bulls-Honda RBPT", "points": 82 },
+      { "position": 7, "name": "Aston Martin Aramco-Mercedes", "points": 72 },
+      { "position": 8, "name": "Haas-Ferrari", "points": 70 },
+      { "position": 9, "name": "Kick Sauber-Ferrari", "points": 62 },
+      { "position": 10, "name": "Alpine-Renault", "points": 22 }
+    ]
+  },
+  "calendar": {
+    "completed": [
       {
-        "id": "mclaren",
-        "points": 721,
-        "wins": 14,
-        "podiums": 30
+        "round": 1,
+        "grandPrix": "Australian Grand Prix",
+        "date": "2025-03-16",
+        "circuit": "Albert Park Circuit, Melbourne",
+        "pole": "Lando Norris",
+        "fastestLap": "Lando Norris",
+        "winner": "Lando Norris",
+        "winningConstructor": "McLaren-Mercedes"
       },
       {
-        "id": "mercedes",
-        "points": 368,
-        "wins": 2,
-        "podiums": 9
+        "round": 2,
+        "grandPrix": "Chinese Grand Prix",
+        "date": "2025-03-23",
+        "circuit": "Shanghai International Circuit, Shanghai",
+        "pole": "Oscar Piastri",
+        "fastestLap": "Lando Norris",
+        "winner": "Oscar Piastri",
+        "winningConstructor": "McLaren-Mercedes"
       },
       {
-        "id": "ferrari",
-        "points": 362,
-        "wins": 0,
-        "podiums": 9
+        "round": 3,
+        "grandPrix": "Japanese Grand Prix",
+        "date": "2025-04-06",
+        "circuit": "Suzuka Circuit, Suzuka",
+        "pole": "Max Verstappen",
+        "fastestLap": "Kimi Antonelli",
+        "winner": "Max Verstappen",
+        "winningConstructor": "Red Bull Racing-Honda RBPT"
       },
       {
-        "id": "red-bull",
-        "points": 351,
-        "wins": 5,
-        "podiums": 12
+        "round": 4,
+        "grandPrix": "Bahrain Grand Prix",
+        "date": "2025-04-13",
+        "circuit": "Bahrain International Circuit, Sakhir",
+        "pole": "Oscar Piastri",
+        "fastestLap": "Oscar Piastri",
+        "winner": "Oscar Piastri",
+        "winningConstructor": "McLaren-Mercedes"
       },
       {
-        "id": "williams",
-        "points": 111,
-        "wins": 0,
-        "podiums": 1
+        "round": 5,
+        "grandPrix": "Saudi Arabian Grand Prix",
+        "date": "2025-04-20",
+        "circuit": "Jeddah Corniche Circuit, Jeddah",
+        "pole": "Max Verstappen",
+        "fastestLap": "Lando Norris",
+        "winner": "Oscar Piastri",
+        "winningConstructor": "McLaren-Mercedes"
       },
       {
-        "id": "racing-bulls",
-        "points": 72,
-        "wins": 0,
-        "podiums": 1
+        "round": 6,
+        "grandPrix": "Miami Grand Prix",
+        "date": "2025-05-04",
+        "circuit": "Miami International Autodrome, Miami Gardens",
+        "pole": "Max Verstappen",
+        "fastestLap": "Lando Norris",
+        "winner": "Oscar Piastri",
+        "winningConstructor": "McLaren-Mercedes"
       },
       {
-        "id": "aston-martin",
-        "points": 72,
-        "wins": 0,
-        "podiums": 0
+        "round": 7,
+        "grandPrix": "Emilia Romagna Grand Prix",
+        "date": "2025-05-18",
+        "circuit": "Imola Circuit, Imola",
+        "pole": "Oscar Piastri",
+        "fastestLap": "Max Verstappen",
+        "winner": "Max Verstappen",
+        "winningConstructor": "Red Bull Racing-Honda RBPT"
       },
       {
-        "id": "haas",
-        "points": 62,
-        "wins": 0,
-        "podiums": 0
+        "round": 8,
+        "grandPrix": "Monaco Grand Prix",
+        "date": "2025-05-25",
+        "circuit": "Circuit de Monaco, Monaco",
+        "pole": "Lando Norris",
+        "fastestLap": "Lando Norris",
+        "winner": "Lando Norris",
+        "winningConstructor": "McLaren-Mercedes"
       },
       {
-        "id": "sauber",
-        "points": 60,
-        "wins": 0,
-        "podiums": 1
+        "round": 9,
+        "grandPrix": "Spanish Grand Prix",
+        "date": "2025-06-01",
+        "circuit": "Circuit de Barcelona-Catalunya, Montmeló",
+        "pole": "Oscar Piastri",
+        "fastestLap": "Oscar Piastri",
+        "winner": "Oscar Piastri",
+        "winningConstructor": "McLaren-Mercedes"
       },
       {
-        "id": "alpine",
-        "points": 21,
-        "wins": 0,
-        "podiums": 0
+        "round": 10,
+        "grandPrix": "Canadian Grand Prix",
+        "date": "2025-06-15",
+        "circuit": "Circuit Gilles Villeneuve, Montreal",
+        "pole": "George Russell",
+        "fastestLap": "George Russell",
+        "winner": "George Russell",
+        "winningConstructor": "Mercedes"
+      },
+      {
+        "round": 11,
+        "grandPrix": "Austrian Grand Prix",
+        "date": "2025-06-29",
+        "circuit": "Red Bull Ring, Spielberg",
+        "pole": "Lando Norris",
+        "fastestLap": "Oscar Piastri",
+        "winner": "Lando Norris",
+        "winningConstructor": "McLaren-Mercedes"
+      },
+      {
+        "round": 12,
+        "grandPrix": "British Grand Prix",
+        "date": "2025-07-06",
+        "circuit": "Silverstone Circuit, Silverstone",
+        "pole": "Max Verstappen",
+        "fastestLap": "Oscar Piastri",
+        "winner": "Lando Norris",
+        "winningConstructor": "McLaren-Mercedes"
+      },
+      {
+        "round": 13,
+        "grandPrix": "Belgian Grand Prix",
+        "date": "2025-07-27",
+        "circuit": "Circuit de Spa-Francorchamps, Stavelot",
+        "pole": "Lando Norris",
+        "fastestLap": "Kimi Antonelli",
+        "winner": "Oscar Piastri",
+        "winningConstructor": "McLaren-Mercedes"
+      },
+      {
+        "round": 14,
+        "grandPrix": "Hungarian Grand Prix",
+        "date": "2025-08-03",
+        "circuit": "Hungaroring, Mogyoród",
+        "pole": "Charles Leclerc",
+        "fastestLap": "George Russell",
+        "winner": "Lando Norris",
+        "winningConstructor": "McLaren-Mercedes"
+      },
+      {
+        "round": 15,
+        "grandPrix": "Dutch Grand Prix",
+        "date": "2025-08-31",
+        "circuit": "Circuit Zandvoort, Zandvoort",
+        "pole": "Oscar Piastri",
+        "fastestLap": "Oscar Piastri",
+        "winner": "Oscar Piastri",
+        "winningConstructor": "McLaren-Mercedes"
+      },
+      {
+        "round": 16,
+        "grandPrix": "Italian Grand Prix",
+        "date": "2025-09-07",
+        "circuit": "Monza Circuit, Monza",
+        "pole": "Max Verstappen",
+        "fastestLap": "Lando Norris",
+        "winner": "Max Verstappen",
+        "winningConstructor": "Red Bull Racing-Honda RBPT"
+      },
+      {
+        "round": 17,
+        "grandPrix": "Azerbaijan Grand Prix",
+        "date": "2025-09-21",
+        "circuit": "Baku City Circuit, Baku",
+        "pole": "Max Verstappen",
+        "fastestLap": "Max Verstappen",
+        "winner": "Max Verstappen",
+        "winningConstructor": "Red Bull Racing-Honda RBPT"
+      },
+      {
+        "round": 18,
+        "grandPrix": "Singapore Grand Prix",
+        "date": "2025-10-05",
+        "circuit": "Marina Bay Street Circuit, Singapore",
+        "pole": "George Russell",
+        "fastestLap": "Lewis Hamilton",
+        "winner": "George Russell",
+        "winningConstructor": "Mercedes"
+      },
+      {
+        "round": 19,
+        "grandPrix": "United States Grand Prix",
+        "date": "2025-10-19",
+        "circuit": "Circuit of the Americas, Austin",
+        "pole": "Max Verstappen",
+        "fastestLap": "Kimi Antonelli",
+        "winner": "Max Verstappen",
+        "winningConstructor": "Red Bull Racing-Honda RBPT"
+      },
+      {
+        "round": 20,
+        "grandPrix": "Mexico City Grand Prix",
+        "date": "2025-10-26",
+        "circuit": "Autódromo Hermanos Rodríguez, Mexico City",
+        "pole": "Lando Norris",
+        "fastestLap": "George Russell",
+        "winner": "Lando Norris",
+        "winningConstructor": "McLaren-Mercedes"
+      },
+      {
+        "round": 21,
+        "grandPrix": "São Paulo Grand Prix",
+        "date": "2025-11-09",
+        "circuit": "Interlagos Circuit, São Paulo",
+        "pole": "Lando Norris",
+        "fastestLap": "Alexander Albon",
+        "winner": "Lando Norris",
+        "winningConstructor": "McLaren-Mercedes"
+      }
+    ],
+    "upcoming": [
+      {
+        "round": 22,
+        "grandPrix": "Las Vegas Grand Prix",
+        "date": "2025-11-22",
+        "circuit": "Las Vegas Strip Circuit, Paradise, Nevada"
+      },
+      {
+        "round": 23,
+        "grandPrix": "Qatar Grand Prix",
+        "date": "2025-11-30",
+        "circuit": "Lusail International Circuit, Lusail"
+      },
+      {
+        "round": 24,
+        "grandPrix": "Abu Dhabi Grand Prix",
+        "date": "2025-12-07",
+        "circuit": "Yas Marina Circuit, Abu Dhabi"
       }
     ]
   }
