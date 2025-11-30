@@ -11,7 +11,7 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '1h',
   setHeaders: res => {
-    res.setHeader('X-Powered-By', 'Above The Stack · MSP Performance Scan');
+    res.setHeader('X-Powered-By', 'Above The Stack - MSP Performance Scan');
   }
 }));
 
