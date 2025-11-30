@@ -43,6 +43,7 @@ const livePulseScore = document.getElementById('livePulseScore');
 const livePulsePersona = document.getElementById('livePulsePersona');
 const resumeStatus = document.getElementById('resumeStatus');
 const recapList = document.getElementById('recapList');
+const sectionMap = document.getElementById('sectionMap');
 
 function initScale() {
   scaleOptions.innerHTML = '';
@@ -106,6 +107,7 @@ function updateQuestion() {
   nextBtn.textContent = state.currentIndex === totalQuestions - 1 ? 'View Results' : 'Next';
   updateProgress();
   updateLivePulse();
+  updateSectionMap();
   persistState();
 }
 
@@ -178,7 +180,45 @@ function buildPillars(scores) {
     verdict.textContent = pillarVerdict(scores[index]);
 
     card.append(top, verdict);
-    pillarGrid.appendChild(card);
+  pillarGrid.appendChild(card);
+  });
+}
+
+function updateSectionMap() {
+  if (!sectionMap) return;
+  sectionMap.innerHTML = '';
+  let offset = 0;
+
+  sections.forEach(section => {
+    const answers = state.answers.slice(offset, offset + section.questions.length);
+    const answeredCount = answers.filter(value => value != null).length;
+    const completion = Math.round((answeredCount / section.questions.length) * 100);
+    const nextIndex = answers.findIndex(value => value == null);
+    const targetIndex = nextIndex === -1 ? offset : offset + nextIndex;
+    const isActive = state.currentIndex >= offset && state.currentIndex < offset + section.questions.length;
+
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'section-chip';
+    if (isActive) chip.classList.add('active');
+    chip.innerHTML = `
+      <div class="chip-top">
+        <span class="tag">${section.label}</span>
+        <span>${section.name}</span>
+      </div>
+      <div class="chip-progress">
+        <span>${answeredCount}/${section.questions.length} answered</span>
+        <div class="chip-meter"><span style="width:${completion}%"></span></div>
+      </div>
+    `;
+
+    chip.addEventListener('click', () => {
+      state.currentIndex = targetIndex;
+      updateQuestion();
+    });
+
+    sectionMap.appendChild(chip);
+    offset += section.questions.length;
   });
 }
 
