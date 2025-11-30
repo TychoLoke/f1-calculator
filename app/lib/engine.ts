@@ -1,14 +1,14 @@
-import { sections, personas, verdicts, tierCopy } from './data.js';
+import { sections, personas, verdicts } from './data';
 
-export const pillarVerdict = score => {
+export const pillarVerdict = (score: number): string => {
   if (score >= 80) return verdicts.high;
   if (score >= 60) return verdicts.medium;
   return verdicts.low;
 };
 
-export function calculateScores(answers) {
+export function calculateScores(answers: number[]): { pillarScores: number[]; totalScore: number } {
   let offset = 0;
-  const pillarScores = sections.map(section => {
+  const pillarScores = sections.map((section) => {
     const slice = answers.slice(offset, offset + section.questions.length);
     offset += section.questions.length;
     const sum = slice.reduce((acc, val) => acc + val, 0);
@@ -20,17 +20,23 @@ export function calculateScores(answers) {
   return { pillarScores, totalScore };
 }
 
-export function resolveTier(totalScore) {
-  return tierCopy.find(tier => totalScore <= tier.max)?.label ?? tierCopy[2].label;
+export function resolveTier(totalScore: number): string {
+  const tiers = [
+    { max: 39, label: 'Tool-Driven MSP' },
+    { max: 69, label: 'Transitioning MSP' },
+    { max: 100, label: 'Managed Intelligence Provider' },
+  ];
+
+  return tiers.find((tier) => totalScore <= tier.max)?.label ?? tiers[2].label;
 }
 
-export function derivePersona(scores) {
+export function derivePersona(scores: number[]) {
   const [strategy, culture, operations, intelligence] = scores;
   const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
-  const high = score => score >= 75;
-  const low = score => score < 60;
+  const high = (score: number) => score >= 75;
+  const low = (score: number) => score < 60;
 
-  if (scores.every(score => score >= 80)) return personas.mip;
+  if (scores.every((score) => score >= 80)) return personas.mip;
   if (high(operations) && low(strategy)) return personas.stabilizer;
   if (high(strategy) && low(operations)) return personas.visionary;
   if (high(intelligence) && low(culture)) return personas.architect;
@@ -38,23 +44,23 @@ export function derivePersona(scores) {
   return personas.stabilizer;
 }
 
-export function deriveInsights(scores) {
-  const names = sections.map(s => s.name);
+export function deriveInsights(scores: number[]) {
+  const names = sections.map((s) => s.name);
   const paired = scores.map((score, idx) => ({ score, name: names[idx] }));
   const strengths = [...paired].sort((a, b) => b.score - a.score).slice(0, 3);
   const opportunities = [...paired].sort((a, b) => a.score - b.score).slice(0, 3);
   return {
-    strengths: strengths.map(item => `${item.name}: ${pillarVerdict(item.score)}`),
-    opportunities: opportunities.map(item => `${item.name}: ${pillarVerdict(item.score)}`)
+    strengths: strengths.map((item) => `${item.name}: ${pillarVerdict(item.score)}`),
+    opportunities: opportunities.map((item) => `${item.name}: ${pillarVerdict(item.score)}`),
   };
 }
 
-export function derivePartialScores(answers) {
+export function derivePartialScores(answers: Array<number | null>) {
   let offset = 0;
   let totalAnswered = 0;
   let totalSum = 0;
-  const pillarScores = sections.map(section => {
-    const slice = answers.slice(offset, offset + section.questions.length).filter(v => v != null);
+  const pillarScores = sections.map((section) => {
+    const slice = answers.slice(offset, offset + section.questions.length).filter((v): v is number => v != null);
     offset += section.questions.length;
     if (!slice.length) return null;
     const sum = slice.reduce((acc, val) => acc + val, 0);
@@ -63,9 +69,7 @@ export function derivePartialScores(answers) {
     return Math.round((sum / (slice.length * 5)) * 100);
   });
 
-  const totalScore = totalAnswered
-    ? Math.round((totalSum / (totalAnswered * 5)) * 100)
-    : null;
+  const totalScore = totalAnswered ? Math.round((totalSum / (totalAnswered * 5)) * 100) : null;
 
   return { pillarScores, totalScore, totalAnswered };
 }
