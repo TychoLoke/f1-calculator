@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MSP Performance Scan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="hero" id="top">
+    <div class="hero__bg"></div>
+    <header class="nav">
+      <div class="brand">Above The Stack</div>
+      <div class="version">v1.0 – 2026</div>
+    </header>
+    <div class="hero__content">
+      <div class="hero__text">
+        <p class="eyebrow">Premium Diagnostic</p>
+        <h1 class="hero__title">MSP Performance Scan</h1>
+        <p class="hero__subtitle">Your 5-minute benchmark for 2026. Discover how mature your MSP really is.</p>
+        <div class="hero__cta">
+          <button class="primary" id="startScanBtn">Start the Scan</button>
+          <div class="cta-hint">Built for the four pillars of modern MSP excellence.</div>
+        </div>
+        <p class="hero__copy">A concise, modern assessment benchmarking your strategy, culture, operations, and intelligence against the next generation of MSP excellence.</p>
+      </div>
+      <div class="hero__visual">
+        <div class="orbital">
+          <div class="orbital__core"></div>
+          <div class="orbital__ring"></div>
+          <div class="orbital__ring orbital__ring--delayed"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="card assessment" id="assessment">
+      <div class="meta-panel">
+        <div class="live-pulse">
+          <div class="live-pulse__header">
+            <p class="eyebrow">Live readiness pulse</p>
+            <span class="tag tag--pulse" id="resumeStatus">Fresh session</span>
+          </div>
+          <div class="live-pulse__body">
+            <div>
+              <div class="live-pulse__score" id="livePulseScore">—</div>
+              <div class="live-pulse__persona" id="livePulsePersona">Persona pending</div>
+            </div>
+            <div class="live-pulse__hint">Keyboard ready: use 1–5 to score, ← / → to navigate.</div>
+          </div>
+        </div>
+        <div class="session-actions">
+          <button class="text" id="resetBtn">Reset</button>
+          <a class="text" href="#results">Jump to results</a>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div class="progress__label" id="progressLabel">Progress 0%</div>
+        <div class="progress__track">
+          <div class="progress__bar" id="progressBar"></div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div>
+          <p class="eyebrow" id="sectionEyebrow">Section A</p>
+          <h2 id="sectionTitle">Strategy &amp; Identity</h2>
+        </div>
+        <div class="question-count" id="questionCounter">Question 1 of 20</div>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <p class="question" id="questionText">How clearly is your ICP defined?</p>
+        <div class="scale" id="scaleOptions"></div>
+        <div class="scale__legend">
+          <span>Immature</span>
+          <span>Very mature</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="ghost" id="prevBtn" disabled>Previous</button>
+        <button class="primary" id="nextBtn">Next</button>
+      </div>
+    </section>
+
+    <section class="card results" id="results" aria-hidden="true">
+      <div class="results__grid">
+        <div class="results__main">
+          <p class="eyebrow">MSP Performance Scan</p>
+          <h2>Your MIP Readiness Score</h2>
+          <div class="score-display">
+            <div class="score-circle">
+              <svg viewBox="0 0 140 140">
+                <defs>
+                  <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f18268" />
+                    <stop offset="100%" stop-color="#10c0e7" />
+                  </linearGradient>
+                </defs>
+                <circle class="score-circle__track" cx="70" cy="70" r="64"></circle>
+                <circle class="score-circle__bar" id="scoreArc" cx="70" cy="70" r="64" stroke-dasharray="402" stroke-dashoffset="402" stroke="url(#scoreGradient)"></circle>
+              </svg>
+              <div class="score-circle__value" id="totalScore">0</div>
+            </div>
+            <div class="tier" id="tierLabel">Managed Intelligence Provider</div>
+          </div>
+
+          <div class="pillar-grid" id="pillarGrid"></div>
+        </div>
+
+        <div class="results__side">
+          <div class="card-inner">
+            <h3>Strengths</h3>
+            <ul id="strengthList" class="pill-list"></ul>
+            <h3>Opportunities</h3>
+            <ul id="opportunityList" class="pill-list pill-list--alt"></ul>
+          </div>
+
+          <div class="card-inner benchmark">
+            <div class="benchmark__header">
+              <h3>Industry Benchmark</h3>
+              <span class="tag">Snapshot</span>
+            </div>
+            <div class="benchmark__bars">
+              <div class="benchmark__row">
+                <span>Top 25%</span>
+                <div class="bar"><span style="width: 78%">78</span></div>
+              </div>
+              <div class="benchmark__row">
+                <span>Industry average</span>
+                <div class="bar"><span style="width: 54%">54</span></div>
+              </div>
+              <div class="benchmark__row">
+                <span>Bottom 25%</span>
+                <div class="bar"><span style="width: 34%">34</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-inner persona" id="personaCard">
+            <div class="persona__icon">✦</div>
+            <div>
+              <p class="eyebrow">Persona</p>
+              <h3 id="personaTitle">The MIP</h3>
+              <p id="personaDescription">All pillars strong.</p>
+            </div>
+          </div>
+
+          <div class="card-inner recap">
+            <div class="recap__header">
+              <h3>Answer recap</h3>
+              <span class="tag">Per section</span>
+            </div>
+            <div id="recapList" class="recap__list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-grid">
+        <button class="primary">Join the Above The Stack Community</button>
+        <button class="ghost">Download the MSP Performance Playbook</button>
+        <button class="text">Follow Tycho Löke</button>
+      </div>
+
+      <div class="email-capture" id="emailCapture">
+        <div>
+          <h3>Want your results as a PDF?</h3>
+          <p>Share your email and we will send a downloadable version when available.</p>
+        </div>
+        <div class="email-actions">
+          <input type="email" id="emailInput" placeholder="you@example.com" aria-label="Email" />
+          <button class="primary" id="saveEmailBtn">Save</button>
+          <button class="text" id="skipEmailBtn">Skip</button>
+        </div>
+        <div class="email-status" id="emailStatus" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>
