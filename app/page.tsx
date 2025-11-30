@@ -14,6 +14,38 @@ import {
 const STORAGE_KEY = 'msp-scan-state-v2';
 const EMAIL_KEY = 'msp-scan-email';
 
+const keyTerms = [
+  {
+    term: 'ICP (Ideal Customer Profile)',
+    definition:
+      'The exact type of client you design services for — industry, size, tech stack, and the triggers that make them buy.',
+  },
+  {
+    term: 'Service catalogue',
+    definition: 'Your menu of packaged offers. The clearer the outcomes, the easier it is for clients to pick and for teams to deliver.',
+  },
+  {
+    term: 'GTM (Go-To-Market)',
+    definition: 'How you attract, sell, and onboard the right clients — spanning marketing, sales, and post-sale handoff.',
+  },
+  {
+    term: 'Runbook',
+    definition: 'A step-by-step playbook for recurring work so any technician can deliver the same quality.',
+  },
+  {
+    term: 'Cross-tool data',
+    definition: 'Insights that combine PSA, RMM, documentation, and finance data so leaders see cause and effect.',
+  },
+];
+
+const scaleGuide = [
+  { label: '1 — Not in place', detail: 'No consistent approach yet; work is reactive or ad-hoc.' },
+  { label: '2 — Emerging', detail: 'Some pockets of maturity, but it relies on individuals, not systems.' },
+  { label: '3 — Defined', detail: 'Documented and repeatable for most teams, with occasional gaps.' },
+  { label: '4 — Optimized', detail: 'Consistently executed with metrics, automation, and QA in place.' },
+  { label: '5 — Leading', detail: 'Industry-grade, continuously improved, and resilient when people change.' },
+];
+
 function getSectionForIndex(index: number) {
   let offset = 0;
   for (const section of sections) {
@@ -342,6 +374,49 @@ export default function HomePage() {
             <p>
               Auto-saving and instant resume status remove friction for busy teams hopping between devices.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="container card glossary">
+        <div className="glossary__header">
+          <div>
+            <p className="eyebrow">Term clarity</p>
+            <h2>Plain-language guide for the scan.</h2>
+          </div>
+          <p>
+            Acronyms like ICP and GTM are spelled out here so your team scores consistently. Skim this once, then
+            jump into the assessment feeling confident.
+          </p>
+        </div>
+
+        <div className="glossary__grid">
+          {keyTerms.map((entry) => (
+            <div key={entry.term} className="glossary__item">
+              <div className="glossary__term">{entry.term}</div>
+              <p>{entry.definition}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="glossary__footer">
+          <div>
+            <h3>How to score 1–5</h3>
+            <ul className="scale-guide">
+              {scaleGuide.map((item) => (
+                <li key={item.label}>
+                  <strong>{item.label}</strong>
+                  <span>{item.detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="glossary__note">
+            <p>
+              Use the same interpretation across the team: a “runbook” is any checklist your technicians can follow, and
+              “cross-tool data” means combining PSA, RMM, documentation, and finance signals to see the full picture.
+            </p>
+            <p>Stuck on a term? Hovering is optional — everything is written in plain English above.</p>
           </div>
         </div>
       </section>
