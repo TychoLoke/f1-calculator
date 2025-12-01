@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { sections } from './lib/data';
+import { sections, sectionGuides } from './lib/data';
 import {
   calculateScores,
   deriveInsights,
@@ -75,6 +75,7 @@ export default function HomePage() {
   const [shakeScale, setShakeScale] = useState(false);
   const [displayScore, setDisplayScore] = useState(0);
   const [hydrated, setHydrated] = useState(false);
+  const [copyStatus, setCopyStatus] = useState('');
 
   const assessmentRef = useRef<HTMLElement | null>(null);
   const resultsRef = useRef<HTMLElement | null>(null);
@@ -84,13 +85,22 @@ export default function HomePage() {
     [currentIndex],
   );
 
+  const partial = useMemo(() => derivePartialScores(answers), [answers]);
+
   const progress = useMemo(() => {
     if (showResults) return 100;
     if (totalQuestions <= 1) return 0;
     return Math.round((currentIndex / (totalQuestions - 1)) * 100);
   }, [currentIndex, showResults, totalQuestions]);
 
-  const partial = useMemo(() => derivePartialScores(answers), [answers]);
+  const questionsRemaining = useMemo(
+    () => totalQuestions - partial.totalAnswered,
+    [partial.totalAnswered, totalQuestions],
+  );
+  const timeEstimateMinutes = useMemo(
+    () => Math.max(1, Math.ceil(questionsRemaining * 0.4)),
+    [questionsRemaining],
+  );
   const allAnswered = useMemo(() => answers.every((value) => value != null), [answers]);
 
   const finalScores = useMemo(() => {
@@ -120,6 +130,8 @@ export default function HomePage() {
   }, [partial]);
 
   const questionCounterLabel = `Question ${currentIndex + 1} of ${totalQuestions}`;
+
+  const helperGuide = useMemo(() => sectionGuides[section.id], [section.id]);
 
   const scoreCircle = useMemo(() => {
     const circumference = 2 * Math.PI * 64;
@@ -269,6 +281,37 @@ export default function HomePage() {
 
   const handleJumpToResults = () => {
     resultsRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCopySummary = async () => {
+    if (!finalScores) {
+      setCopyStatus('Answer all questions to copy your summary.');
+      return;
+    }
+
+    const personaTitle = persona?.title ?? 'The MIP';
+    const lines = [
+      `MIP Performance Scan — ${personaTitle}`,
+      `Total score: ${finalScores.totalScore}% (${resolveTier(finalScores.totalScore)})`,
+      'Pillar scores:',
+      ...finalScores.pillarScores.map(
+        (score, idx) => `${sections[idx].name}: ${score}% (${pillarVerdict(score)})`,
+      ),
+      'Strengths:',
+      ...(insights?.strengths ?? []),
+      'Opportunities:',
+      ...(insights?.opportunities ?? []),
+    ];
+
+    try {
+      await navigator.clipboard.writeText(lines.join('\n'));
+      setCopyStatus('Copied to clipboard — share it with your team.');
+    } catch (err) {
+      console.warn('Unable to copy summary', err);
+      setCopyStatus('Copy not available in this browser.');
+    }
+
+    setTimeout(() => setCopyStatus(''), 4000);
   };
 
   const recap = useMemo(() => {
@@ -442,6 +485,31 @@ export default function HomePage() {
           </div>
         </div>
 
+        <div className="helper-grid">
+          <div className="helper-card">
+            <div className="helper-card__header">
+              <p className="eyebrow">Stay in flow</p>
+              <span className="tag">Navigation</span>
+            </div>
+            <ul className="helper-list">
+              <li><strong>1–5</strong> to score instantly</li>
+              <li><strong>← / →</strong> move between questions</li>
+              <li><strong>Click a chip</strong> to jump to a section</li>
+            </ul>
+          </div>
+          <div className="helper-card">
+            <div className="helper-card__header">
+              <p className="eyebrow">Time signals</p>
+              <span className="tag">Live</span>
+            </div>
+            <ul className="helper-list helper-list--meta">
+              <li><span>Remaining</span> <strong>{questionsRemaining} questions</strong></li>
+              <li><span>Est. time</span> <strong>{timeEstimateMinutes} min</strong></li>
+              <li><span>Completion</span> <strong>{progress}%</strong></li>
+            </ul>
+          </div>
+        </div>
+
         <div className="progress">
           <div className="progress__label">Progress {progress}%</div>
           <div className="progress__track">
@@ -514,6 +582,31 @@ export default function HomePage() {
           </div>
         </div>
 
+        <div className="guidance">
+          <div>
+            <p className="eyebrow">Answer guidance</p>
+            <h3>{helperGuide.headline}</h3>
+            <div className="guidance__grid">
+              <div>
+                <p className="guidance__title">Signals of maturity</p>
+                <ul>
+                  {helperGuide.signals.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="guidance__title">Common pitfalls</p>
+                <ul>
+                  {helperGuide.pitfalls.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="controls">
           <button className="ghost" onClick={handlePrev} disabled={currentIndex === 0}>
             Previous
@@ -557,6 +650,12 @@ export default function HomePage() {
                 <div className="score-circle__value">{showResults ? scoreCircle.value : '—'}</div>
               </div>
               <div className="tier">{finalScores ? resolveTier(finalScores.totalScore) : 'Awaiting completion'}</div>
+              <div className="score-actions">
+                <button className="ghost" onClick={handleCopySummary}>
+                  Copy results for Slack/email
+                </button>
+                <span className="copy-status" role="status" aria-live="polite">{copyStatus}</span>
+              </div>
             </div>
 
             <div className="pillar-grid">
