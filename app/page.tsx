@@ -389,6 +389,42 @@ export default function HomePage() {
         </div>
       </div>
 
+      <section className="container card quickstart">
+        <div className="quickstart__header">
+          <div>
+            <p className="eyebrow">Simple steps</p>
+            <h2>Start, score, reset — all in one view.</h2>
+          </div>
+          <div className="quickstart__actions">
+            <button className="ghost" onClick={handleStart}>Jump to questions</button>
+            <button className="text" onClick={handleReset}>Reset everything</button>
+          </div>
+        </div>
+        <div className="quickstart__grid">
+          <div className="quickstart__card">
+            <span className="pill">1</span>
+            <div>
+              <h3>Read the prompt</h3>
+              <p>Each question is one clear sentence. Score 1–5 or tap a chip to stay focused.</p>
+            </div>
+          </div>
+          <div className="quickstart__card">
+            <span className="pill">2</span>
+            <div>
+              <h3>Watch your progress</h3>
+              <p>Live persona and progress stay pinned so you always know how close you are.</p>
+            </div>
+          </div>
+          <div className="quickstart__card">
+            <span className="pill">3</span>
+            <div>
+              <h3>Reset anytime</h3>
+              <p>One click clears answers, email, and results. No extra dialogs, just a fresh slate.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="container card narrative">
         <div className="narrative__lead">
           <div className="narrative__pulse" />
@@ -480,8 +516,14 @@ export default function HomePage() {
             </div>
           </div>
           <div className="session-actions">
-            <button className="text" onClick={handleReset}>Reset</button>
-            <button className="text" onClick={handleJumpToResults}>Jump to results</button>
+            <div>
+              <p className="session-actions__label">Session controls</p>
+              <div className="session-actions__buttons">
+                <button className="ghost" onClick={handleReset}>Reset session</button>
+                <button className="text" onClick={handleJumpToResults}>View results</button>
+              </div>
+              <small className="session-actions__hint">Auto-save keeps progress; reset clears everything.</small>
+            </div>
           </div>
         </div>
 
@@ -750,9 +792,21 @@ export default function HomePage() {
         </div>
 
         <div className="cta-grid">
-          <button className="primary">Join the Above The Stack Community</button>
-          <button className="ghost">Download the MSP Performance Playbook</button>
-          <button className="text">Follow Tycho Löke</button>
+          <div className="cta-card">
+            <h3>Reset and retake</h3>
+            <p>Want a clean slate? Use the reset button to start a brand-new run for your next teammate.</p>
+            <button className="primary" onClick={handleReset}>Reset now</button>
+          </div>
+          <div className="cta-card">
+            <h3>Share the playbook</h3>
+            <p>Download and pass along the MSP Performance Playbook to standardize how your team scores.</p>
+            <button className="ghost">Download the playbook</button>
+          </div>
+          <div className="cta-card">
+            <h3>Keep in touch</h3>
+            <p>Join the Above The Stack community to get updated benchmarks and fresh personas.</p>
+            <button className="text">Join the community</button>
+          </div>
         </div>
 
         <div className="email-capture" id="emailCapture">
