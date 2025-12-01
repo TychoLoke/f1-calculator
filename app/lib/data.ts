@@ -5,6 +5,12 @@ export type Section = {
   questions: string[];
 };
 
+export type SectionGuide = {
+  headline: string;
+  signals: string[];
+  pitfalls: string[];
+};
+
 export type Persona = {
   title: string;
   description: string;
@@ -89,6 +95,61 @@ export const personas: Record<string, Persona> = {
   mip: {
     title: 'The MIP',
     description: 'Balanced excellence across all pillars. You set the pace for the industry.',
+  },
+};
+
+export const sectionGuides: Record<string, SectionGuide> = {
+  strategy: {
+    headline: 'Strategic clarity and differentiators',
+    signals: [
+      'Clear ICP triggers that decide when you say yes or no.',
+      'Outcome-based catalogue with packaged tiers, not hourly menus.',
+      'Pricing ladders that map to ICP needs and buyer outcomes.',
+    ],
+    pitfalls: [
+      'Generic “all SMBs” positioning that weakens GTM focus.',
+      'Services described as tasks instead of promised outcomes.',
+      'Pricing that mirrors costs instead of value delivered.',
+    ],
+  },
+  culture: {
+    headline: 'People, coaching, and alignment',
+    signals: [
+      'Everyone can repeat the mission and quarterly goals.',
+      'Leaders coach weekly and model the behaviours they request.',
+      'Feedback travels quickly across teams and time zones.',
+    ],
+    pitfalls: [
+      'Goals live in slides but not in rituals or 1:1s.',
+      'Leaders solve instead of coaching, so habits stall.',
+      'Change is announced, not co-designed, causing resistance.',
+    ],
+  },
+  operations: {
+    headline: 'Execution rhythm and repeatability',
+    signals: [
+      'Runbooks with clear ownership for every recurring service.',
+      'Standard stacks reduce variance across clients and technicians.',
+      'Automation closes the gaps between PSA, RMM, and documentation.',
+    ],
+    pitfalls: [
+      'Heroics compensate for missing playbooks.',
+      'Client-by-client tooling that multiplies support overhead.',
+      'QA is ad-hoc, so quality drifts between technicians.',
+    ],
+  },
+  intelligence: {
+    headline: 'Signal-driven decisions',
+    signals: [
+      'Cross-tool reporting for margin, risk, and client health.',
+      'Security posture reviewed with clear response runbooks.',
+      'Forecasts have documented assumptions you revisit monthly.',
+    ],
+    pitfalls: [
+      'Dashboards exist but aren’t tied to decisions or rituals.',
+      'Security ownership is diffused; incidents rely on memory.',
+      'Forecasts live in spreadsheets with stale assumptions.',
+    ],
   },
 };
 
