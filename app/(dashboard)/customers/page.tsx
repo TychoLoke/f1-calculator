@@ -132,8 +132,10 @@ export default async function CustomersPage() {
       title="Customers overview"
       breadcrumbs={[{ label: 'Dashboard', href: '/customers' }, { label: 'Customers' }]}
       actions={
-        <button className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#ff5f6d] via-[#7c3aed] to-[#5b8bff] px-4 py-2 text-sm font-semibold text-white shadow-[0_10px_40px_-22px_rgba(91,139,255,0.9)] transition hover:opacity-95">
-          <Users className="h-4 w-4" />
+        <button className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-[#101a32] px-4 py-2 text-sm font-semibold text-white shadow-[0_10px_40px_-28px_rgba(0,0,0,0.9)] transition hover:border-white/20 hover:bg-[#14223e]">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-[#ff5f6d] via-[#7c3aed] to-[#5b8bff] text-white shadow-[0_20px_40px_-26px_rgba(91,139,255,0.9)]">
+            <Users className="h-4 w-4" />
+          </span>
           New tenant
         </button>
       }
@@ -175,11 +177,12 @@ export default async function CustomersPage() {
           </Panel>
         </section>
 
-        <Panel title="Customer overview" subtitle="Backup coverage and job signal">
-          <CustomerTable rows={customerRows} errors={combinedErrors} />
-        </Panel>
+        <section>
+          <Panel title="Customer overview" subtitle="Backup coverage and job signal">
+            <CustomerTable rows={customerRows} errors={combinedErrors} />
+          </Panel>
+        </section>
       </div>
     </AppShell>
   );
 }
-

@@ -8,7 +8,7 @@
 
 body {
   min-height: 100vh;
-  background: #050814;
+  background: #0b1220;
 }
 
 a {
@@ -17,7 +17,7 @@ a {
 }
 
 a:hover {
-  color: rgb(56 189 248 / 0.9);
+  color: rgb(91 139 255 / 0.9);
 }
 
 *::-webkit-scrollbar {
