@@ -1,6 +1,6 @@
 import { getAosToken } from './aosToken';
 
-type ElementsRequestInit = Omit<RequestInit, 'headers' | 'body'> & {
+type ElementsRequestInit = Omit<RequestInit, 'headers'> & {
   headers?: Record<string, string>;
 };
 
