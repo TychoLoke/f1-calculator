@@ -5,6 +5,7 @@ const STATUS_STYLES: Record<string, string> = {
   inactive: 'bg-amber-500/10 text-amber-200 border-amber-500/30',
   unknown: 'bg-slate-500/10 text-slate-200 border-slate-500/30',
   failed: 'bg-rose-500/10 text-rose-200 border-rose-500/30',
+  terminated: 'bg-rose-500/10 text-rose-200 border-rose-500/30',
   success: 'bg-emerald-500/10 text-emerald-200 border-emerald-500/30',
   running: 'bg-sky-500/10 text-sky-200 border-sky-500/30',
 };
