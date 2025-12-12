@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { elementsFetch } from '../../../lib/elementsClient';
+import { MissingEnvError, elementsFetch } from '../../../lib/elementsClient';
 
 type Baseline = {
   baselineId?: string;
@@ -36,6 +36,11 @@ export async function GET() {
     return NextResponse.json({ items, totalCount });
   } catch (error) {
     console.error('Failed to fetch baselines batch', error);
+
+    if (error instanceof MissingEnvError) {
+      return NextResponse.json({ items: [], error: error.message }, { status: 500 });
+    }
+
     return NextResponse.json({ items: [], error: 'Unable to fetch baselines' }, { status: 500 });
   }
 }

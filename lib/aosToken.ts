@@ -19,10 +19,10 @@ function requiredEnv(name: string) {
 
 function resolveScope() {
   return (
-    process.env.AOS_SCOPE ||
     process.env.ELEMENTS_SCOPE ||
+    process.env.AOS_SCOPE ||
     (() => {
-      throw new Error('Missing required environment variable: AOS_SCOPE');
+      throw new Error('Missing required environment variable: ELEMENTS_SCOPE or AOS_SCOPE');
     })()
   );
 }

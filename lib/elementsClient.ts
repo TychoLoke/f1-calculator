@@ -6,16 +6,27 @@ type ElementsRequestInit = Omit<RequestInit, 'headers'> & {
 
 type ErrorBody = { error?: string; message?: string } | string | unknown;
 
-function requiredEnv(name: string) {
+export class MissingEnvError extends Error {
+  constructor(envName: string) {
+    super(`Missing required environment variable: ${envName}`);
+    this.name = 'MissingEnvError';
+  }
+}
+
+function requireEnv(name: string) {
   const value = process.env[name];
   if (!value) {
-    throw new Error(`Missing required environment variable: ${name}`);
+    throw new MissingEnvError(name);
   }
   return value;
 }
 
+function requireOneOf(primary: string, fallback: string) {
+  return process.env[primary] || process.env[fallback] || requireEnv(`${primary} or ${fallback}`);
+}
+
 function buildUrl(path: string) {
-  const base = requiredEnv('AOS_ELEMENTS_BASE_URL').replace(/\/$/, '');
+  const base = requireOneOf('ELEMENTS_GRAPH_BASE_URL', 'AOS_ELEMENTS_BASE_URL').replace(/\/$/, '');
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
   return `${base}${normalizedPath}`;
 }
