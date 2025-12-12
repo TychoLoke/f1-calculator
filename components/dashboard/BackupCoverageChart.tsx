@@ -15,7 +15,13 @@ interface BackupCoverageChartProps {
   data: CoverageDatum[];
 }
 
-function BackupCoverageTooltip({ active, payload, label }: TooltipProps<number, string>) {
+type BackupCoverageTooltipProps = Partial<TooltipProps<number, string | number>> & {
+  payload?: Array<{ dataKey?: string; value?: number }>;
+  label?: string | number;
+  active?: boolean;
+};
+
+function BackupCoverageTooltip({ active, payload, label }: BackupCoverageTooltipProps) {
   if (!active || !payload?.length || label == null) return null;
 
   const scanned = payload.find((item) => item.dataKey === 'scanned');
@@ -94,7 +100,12 @@ export function BackupCoverageChart({ data }: BackupCoverageChartProps) {
                   axisLine={false}
                   tick={{ fill: '#cbd5e1', fontSize: 12, fontWeight: 500 }}
                 />
-                <Tooltip cursor={{ fill: 'rgba(255,255,255,0.02)' }} content={<BackupCoverageTooltip />} />
+                <Tooltip
+                  cursor={{ fill: 'rgba(255,255,255,0.02)' }}
+                  content={(props: TooltipProps<number, string | number>) => (
+                    <BackupCoverageTooltip {...props} />
+                  )}
+                />
                 <defs>
                   <linearGradient id="coverageScanned" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#7dd3fc" stopOpacity={0.95} />

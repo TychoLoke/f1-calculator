@@ -23,7 +23,13 @@ const STATUS_COLORS: Record<string, string> = {
   Ready: '#cbd5e1',
 };
 
-function JobHealthTooltip({ active, payload, label }: TooltipProps<number, string>) {
+type JobHealthTooltipProps = Partial<TooltipProps<number, string | number>> & {
+  payload?: Array<{ value?: number }>;
+  label?: string | number;
+  active?: boolean;
+};
+
+function JobHealthTooltip({ active, payload, label }: JobHealthTooltipProps) {
   if (!active || !payload?.length || label == null) return null;
 
   const item = payload[0];
@@ -86,7 +92,12 @@ export function JobHealthChart({ data }: JobHealthChartProps) {
                   axisLine={false}
                   tick={{ fill: '#cbd5e1', fontSize: 12, fontWeight: 500 }}
                 />
-                <Tooltip cursor={{ fill: 'rgba(255,255,255,0.02)' }} content={<JobHealthTooltip />} />
+                <Tooltip
+                  cursor={{ fill: 'rgba(255,255,255,0.02)' }}
+                  content={(props: TooltipProps<number, string | number>) => (
+                    <JobHealthTooltip {...props} />
+                  )}
+                />
                 <defs>
                   <linearGradient id="jobHealthGlow" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stopColor="#9de2ff" stopOpacity={0.4} />
