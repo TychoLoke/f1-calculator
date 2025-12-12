@@ -1,0 +1,173 @@
+{
+  "data": [
+    {
+      "id": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "organization": "AvePoint",
+      "ownerEmail": "admin@M365x72730749.onmicrosoft.com",
+      "jobStatus": 5,
+      "countryOrRegion": "Netherlands",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "1b4ae51c-dd98-4d48-bdf2-c2b7e87b912e",
+          "name": "M365x72730749"
+        },
+        {
+          "id": "e048876f-a4d7-4d5a-8b71-b3049e8933fe",
+          "name": "M365x72034420"
+        }
+      ]
+    },
+    {
+      "id": "5e67eb3a-b12f-46a4-a228-5b3eb0cf6cc4",
+      "organization": "SimuSoft",
+      "ownerEmail": "admin@M365x21996255.onmicrosoft.com",
+      "jobStatus": 1,
+      "countryOrRegion": "Netherlands",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "9107dec9-be73-4b88-aaf8-55e6d36b6e2e",
+          "name": "M365x17022821"
+        },
+        {
+          "id": "d4ec54a2-10a2-4bb3-a9fe-007f50e6ffa2",
+          "name": "M365x21996255"
+        }
+      ]
+    },
+    {
+      "id": "634565d4-3b63-4cf4-8890-12fdb4ba95a1",
+      "organization": "MSP Services Inc.",
+      "ownerEmail": "admin@M365B480086.onmicrosoft.com",
+      "jobStatus": 0,
+      "countryOrRegion": "United States",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "85af68bb-b75d-4b50-8844-617a62365efe",
+          "name": "M365B480086"
+        }
+      ]
+    },
+    {
+      "id": "84f83a7f-c004-4303-b7c1-f011ac61235f",
+      "organization": "Mock MSP",
+      "ownerEmail": "admin@mockmsp.onmicrosoft.com",
+      "jobStatus": 1,
+      "countryOrRegion": "Netherlands",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "3ef1b483-16b5-4e7d-9243-ed793c6565c3",
+          "name": "mockmsp"
+        }
+      ]
+    },
+    {
+      "id": "c6c00759-1e03-4332-bba4-01af15711929",
+      "organization": "Maan's Kingdom",
+      "ownerEmail": "admin@M365x03696368.onmicrosoft.com",
+      "jobStatus": 1,
+      "countryOrRegion": "Netherlands",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "fdb0df19-6041-4ab4-a439-22f294948d6e",
+          "name": "M365x03696368"
+        }
+      ]
+    },
+    {
+      "id": "e3168506-3fa7-4ed6-9e40-8ddb5cb3683a",
+      "organization": "CykLTD",
+      "ownerEmail": "yawegi3063@comsb.com",
+      "jobStatus": 5,
+      "countryOrRegion": "Netherlands",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "0108ed18-237f-4e6d-ab20-7af2d7e6d642",
+          "name": "CRM461557"
+        }
+      ]
+    },
+    {
+      "id": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "organization": "AvePoint DBN Tenant",
+      "ownerEmail": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "jobStatus": 6,
+      "countryOrRegion": "United Kingdom",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "15a1142b-effa-4b7c-8716-d46637ced779",
+          "name": null
+        },
+        {
+          "id": "15e6fd64-a5d9-4caa-9b75-3b7968b5a69d",
+          "name": "avepointfrance"
+        },
+        {
+          "id": "19cb0b81-af4c-46b0-b3a8-a02631334958",
+          "name": null
+        },
+        {
+          "id": "53cdcac6-7239-4cc8-83a7-cde8b78712cc",
+          "name": null
+        },
+        {
+          "id": "59f3c7ce-d242-4a94-8e8d-a9d1e21bd036",
+          "name": null
+        },
+        {
+          "id": "5b11951e-399e-4b62-9d8f-c633450a5872",
+          "name": "avepointdbn"
+        },
+        {
+          "id": "60444e34-af7b-4d47-830d-4e179f22d475",
+          "name": null
+        },
+        {
+          "id": "738de8ec-5054-4df2-afdb-1b271f5703bc",
+          "name": null
+        },
+        {
+          "id": "997cf55e-fcfa-4e20-8ac5-d710f3c2e539",
+          "name": null
+        },
+        {
+          "id": "a58ce1e1-eef6-4db7-9740-add2e387981c",
+          "name": "avepointuk"
+        },
+        {
+          "id": "b22b108a-e529-44f3-8e9f-dbdd66e889e2",
+          "name": "avpdemo"
+        },
+        {
+          "id": "f9ee00bf-d456-4fb0-96b4-f41822da9830",
+          "name": "Dmajor"
+        }
+      ]
+    },
+    {
+      "id": "ab123777-31db-4525-b7eb-abe4140a48d6",
+      "organization": "Gryffindor Court Incorporated",
+      "ownerEmail": "admin@M365x72457424.onmicrosoft.com",
+      "jobStatus": 1,
+      "countryOrRegion": "Netherlands",
+      "managementMode": 1,
+      "tenants": [
+        {
+          "id": "ef55f034-e1b3-4997-a4d2-477e191aa46b",
+          "name": "M365x72457424"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pageIndex": 1,
+    "pageSize": 100,
+    "totalCount": 8
+  }
+}

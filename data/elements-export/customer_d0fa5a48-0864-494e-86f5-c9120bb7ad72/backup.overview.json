@@ -1,0 +1,129 @@
+{
+  "data": [
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Exchange Online",
+      "totalScannedObjects": 81,
+      "totalProtectedObjects": 81,
+      "dataSizeStoredInAvePoint": "143.22 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Microsoft 365 Group",
+      "totalScannedObjects": 159,
+      "totalProtectedObjects": 142,
+      "dataSizeStoredInAvePoint": "96.34 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Microsoft Teams",
+      "totalScannedObjects": 528,
+      "totalProtectedObjects": 469,
+      "dataSizeStoredInAvePoint": "493.79 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "OneDrive",
+      "totalScannedObjects": 77,
+      "totalProtectedObjects": 53,
+      "dataSizeStoredInAvePoint": "199.26 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Microsoft Teams chat",
+      "totalScannedObjects": 181,
+      "totalProtectedObjects": 69,
+      "dataSizeStoredInAvePoint": "1.84 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Power Apps",
+      "totalScannedObjects": 33,
+      "totalProtectedObjects": 33,
+      "dataSizeStoredInAvePoint": "0.03 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Power Automate",
+      "totalScannedObjects": 135,
+      "totalProtectedObjects": 135,
+      "dataSizeStoredInAvePoint": "0.01 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Power BI",
+      "totalScannedObjects": 46,
+      "totalProtectedObjects": 45,
+      "dataSizeStoredInAvePoint": "0.10 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Project Online",
+      "totalScannedObjects": 3,
+      "totalProtectedObjects": 3,
+      "dataSizeStoredInAvePoint": "12.64 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Exchange Online Public Folders",
+      "totalScannedObjects": 8,
+      "totalProtectedObjects": 5,
+      "dataSizeStoredInAvePoint": "0.83 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "SharePoint Online",
+      "totalScannedObjects": 446,
+      "totalProtectedObjects": 446,
+      "dataSizeStoredInAvePoint": "1134.33 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "d0fa5a48-0864-494e-86f5-c9120bb7ad72",
+      "customer": "Roche.Mahomedradja@avepointdbn.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Viva Engage",
+      "totalScannedObjects": 36,
+      "totalProtectedObjects": 5,
+      "dataSizeStoredInAvePoint": "2.25 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    }
+  ],
+  "metadata": {
+    "pageIndex": 1,
+    "pageSize": 100,
+    "totalCount": 12
+  }
+}

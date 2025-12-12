@@ -1,0 +1,107 @@
+{
+  "data": [
+    {
+      "baselineId": "c691625c-0f81-0075-1f4e-08de38ae7de0",
+      "baselineName": "Groups",
+      "createdTime": "2025-12-11T12:12:02Z",
+      "modifiedTime": "2025-12-11T12:12:02Z",
+      "status": 5
+    },
+    {
+      "baselineId": "68bd3cd0-4329-f0ee-6e4e-3a1d4651077f",
+      "baselineName": "Demo Baseline Elements",
+      "createdTime": "2025-10-30T08:02:58Z",
+      "modifiedTime": "2025-12-11T10:17:51Z",
+      "status": 3
+    },
+    {
+      "baselineId": "f2a528d8-a2a2-212d-4a61-3a1df1228d4f",
+      "baselineName": "czxc",
+      "createdTime": "2025-12-02T12:07:16Z",
+      "modifiedTime": "2025-12-02T12:07:16Z",
+      "status": 5
+    },
+    {
+      "baselineId": "ba7cfec8-156a-124f-b63b-3a1d8f5e3e92",
+      "baselineName": "Default CIS Level 1 Baseline_copy",
+      "createdTime": "2025-11-13T12:29:40Z",
+      "modifiedTime": "2025-11-13T12:29:40Z",
+      "status": 6
+    },
+    {
+      "baselineId": "65021670-fcb6-1a33-cce0-3a1d6b1414cd",
+      "baselineName": "test",
+      "createdTime": "2025-11-06T11:22:20Z",
+      "modifiedTime": "2025-11-06T11:22:20Z",
+      "status": 5
+    },
+    {
+      "baselineId": "99f235e6-ce84-992f-460a-3a1d46525866",
+      "baselineName": "AvePoint DBN Tenant",
+      "createdTime": "2025-10-30T08:04:24Z",
+      "modifiedTime": "2025-10-30T08:04:24Z",
+      "status": 6
+    },
+    {
+      "baselineId": "aa7eb449-18a7-ded9-1733-3a1d46515e78",
+      "baselineName": "MockMSP Scan",
+      "createdTime": "2025-10-30T08:03:20Z",
+      "modifiedTime": "2025-10-30T08:03:25Z",
+      "status": 2
+    },
+    {
+      "baselineId": "5152a87a-219c-4f5b-ca15-3a1d23ce836d",
+      "baselineName": "Ydentic Baseline",
+      "createdTime": "2025-10-23T15:13:19Z",
+      "modifiedTime": "2025-10-23T15:20:36Z",
+      "status": 2
+    },
+    {
+      "baselineId": "848181da-ff8a-1d66-f505-3a1cf43e6370",
+      "baselineName": "CIS Baseline",
+      "createdTime": "2025-10-14T09:33:44Z",
+      "modifiedTime": "2025-10-14T09:33:44Z",
+      "status": 5
+    },
+    {
+      "baselineId": "00000000-0000-0000-0000-000000000002",
+      "baselineName": "Default CIS Level 1 Baseline",
+      "createdTime": "2025-08-10T00:00:00Z",
+      "modifiedTime": "2025-08-10T00:00:00Z",
+      "status": 3
+    },
+    {
+      "baselineId": "5fca7dce-5176-93e6-e537-3a1a8a121685",
+      "baselineName": "Business Premium V1",
+      "createdTime": "2025-06-16T08:42:36Z",
+      "modifiedTime": "2025-07-10T07:19:41Z",
+      "status": 3
+    },
+    {
+      "baselineId": "d67de919-f963-49f0-a3bb-3a194ff4fb88",
+      "baselineName": "Platinum",
+      "createdTime": "2025-04-16T08:49:07Z",
+      "modifiedTime": "2025-04-16T08:49:07Z",
+      "status": 2
+    },
+    {
+      "baselineId": "00000000-0000-0000-0000-000000000001",
+      "baselineName": "Default Intune Baseline",
+      "createdTime": "2025-04-13T00:00:00Z",
+      "modifiedTime": "2025-04-13T00:00:00Z",
+      "status": 2
+    },
+    {
+      "baselineId": "af7c5b61-e8a7-ea09-5064-3a1826d710f0",
+      "baselineName": "TestMKL002",
+      "createdTime": "2025-02-17T16:07:34Z",
+      "modifiedTime": "2025-02-17T16:07:34Z",
+      "status": 3
+    }
+  ],
+  "metadata": {
+    "pageIndex": 1,
+    "pageSize": 100,
+    "totalCount": 14
+  }
+}

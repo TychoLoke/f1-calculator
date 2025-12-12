@@ -1,0 +1,129 @@
+{
+  "data": [
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Exchange Online",
+      "totalScannedObjects": 0,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0.01 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Microsoft 365 Group",
+      "totalScannedObjects": 3,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0.08 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Microsoft Teams",
+      "totalScannedObjects": 11,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0.12 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "OneDrive",
+      "totalScannedObjects": 20,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0.06 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Microsoft Teams chat",
+      "totalScannedObjects": 34,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Power Apps",
+      "totalScannedObjects": 0,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Power Automate",
+      "totalScannedObjects": 0,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Power BI",
+      "totalScannedObjects": 0,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Project Online",
+      "totalScannedObjects": 0,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Exchange Online Public Folders",
+      "totalScannedObjects": 0,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "SharePoint Online",
+      "totalScannedObjects": 17,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0.23 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    },
+    {
+      "customerId": "4af7ac06-e9fb-43ea-a181-c34deba9c7e8",
+      "customer": "admin@M365x72730749.onmicrosoft.com",
+      "serviceType": "Cloud Backup for Microsoft 365",
+      "serviceModule": "Viva Engage",
+      "totalScannedObjects": 2,
+      "totalProtectedObjects": 0,
+      "dataSizeStoredInAvePoint": "0 GB",
+      "dataSizeStoredInBYOS": "N/A"
+    }
+  ],
+  "metadata": {
+    "pageIndex": 1,
+    "pageSize": 100,
+    "totalCount": 12
+  }
+}
