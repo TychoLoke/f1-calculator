@@ -289,15 +289,15 @@ export default function CustomerOverviewPage({ params }: { params: { customerId:
   };
 
   return (
-    <div className="flex flex-col gap-6" id="overview">
+    <div className="flex flex-col gap-8" id="overview">
       {loadError && (
-        <div className="rounded-xl border border-rose-500/40 bg-rose-500/10 p-4 text-sm text-rose-100">
+        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-4 text-sm text-rose-100 shadow-lg shadow-black/30">
           Failed to load dashboard: {loadError}
         </div>
       )}
 
       {data?.errors?.length ? (
-        <div className="rounded-xl border border-amber-500/40 bg-amber-500/10 p-4 text-sm text-amber-100">
+        <div className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 text-sm text-amber-100 shadow-lg shadow-black/30">
           <p className="font-semibold">Partial data</p>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-amber-100">
             {data.errors.map((err, index) => (
@@ -307,38 +307,60 @@ export default function CustomerOverviewPage({ params }: { params: { customerId:
         </div>
       ) : null}
 
-      <section aria-labelledby="customer-heading" className="space-y-3">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-sky-300">Customer</p>
-            <h2 id="customer-heading" className="text-lg font-semibold text-white">
-              {data?.customer?.name ?? params.customerId}
-            </h2>
-            <p className="text-sm text-slate-400">{data?.customer?.id}</p>
-            <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
-              <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                <p className="text-xs text-slate-400">Owner</p>
-                <p className="text-sm text-white">{data?.customer?.ownerEmail ?? '—'}</p>
-              </div>
-              <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                <p className="text-xs text-slate-400">Region</p>
-                <p className="text-sm text-white">{data?.customer?.country ?? '—'}</p>
-              </div>
-              <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-2">
-                <p className="text-xs text-slate-400">Status</p>
-                <p className="text-sm text-white">
-                  <StatusBadge status={data?.customer?.status ?? 'Unknown'}>{data?.customer?.status ?? 'Unknown'}</StatusBadge>
-                </p>
+      <section
+        aria-labelledby="customer-heading"
+        className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-sky-950/80 via-slate-950/70 to-slate-900/60 p-6 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:p-8"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(168,85,247,0.16),transparent_30%)]" aria-hidden />
+        <div className="relative flex flex-col gap-6">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="space-y-2">
+              <p className="text-[11px] uppercase tracking-[0.24em] text-sky-200">Customer</p>
+              <h2 id="customer-heading" className="text-2xl font-semibold text-white">
+                {data?.customer?.name ?? params.customerId}
+              </h2>
+              <div className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">ID: {data?.customer?.id ?? '—'}</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Owner: {data?.customer?.ownerEmail ?? '—'}</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Region: {data?.customer?.country ?? '—'}</span>
               </div>
             </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <StatusBadge status={data?.customer?.status ?? 'Unknown'}>{data?.customer?.status ?? 'Unknown'}</StatusBadge>
+              <button
+                type="button"
+                onClick={loadOverview}
+                className="rounded-xl bg-gradient-to-r from-sky-500/80 via-indigo-500/80 to-fuchsia-500/80 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sky-900/50 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-sky-300"
+              >
+                Refresh snapshot
+              </button>
+            </div>
           </div>
-          <button
-            type="button"
-            onClick={loadOverview}
-            className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-100 transition hover:border-sky-400 hover:text-white"
-          >
-            Refresh
-          </button>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Active services</p>
+              <p className="mt-2 text-2xl font-semibold text-white">{data?.kpis?.activeServices?.toLocaleString?.() ?? '—'}</p>
+              <p className="text-xs text-slate-400">Of {data?.kpis?.services?.toLocaleString?.() ?? '—'} total</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Risk rules</p>
+              <p className="mt-2 text-2xl font-semibold text-white">{data?.kpis?.riskRules?.toLocaleString?.() ?? data?.riskRules?.length ?? '—'}</p>
+              <p className="text-xs text-slate-400">Detections being monitored</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Backup coverage</p>
+              <p className="mt-2 text-2xl font-semibold text-white">
+                {data?.backup?.coverageRate !== null && data?.backup?.coverageRate !== undefined ? `${data.backup.coverageRate}%` : 'Not reported'}
+              </p>
+              <p className="text-xs text-slate-400">Protected users vs seats</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Jobs failed</p>
+              <p className="mt-2 text-2xl font-semibold text-white">{data?.kpis?.jobsFailed?.toLocaleString?.() ?? '—'}</p>
+              <p className="text-xs text-slate-400">Recent automation health</p>
+            </div>
+          </div>
         </div>
       </section>
 
