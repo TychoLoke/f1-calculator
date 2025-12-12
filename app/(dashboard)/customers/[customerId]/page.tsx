@@ -67,6 +67,19 @@ export default function CustomerOverviewPage({ params }: { params: { customerId:
   const [loadError, setLoadError] = useState<string | null>(null);
   const [refreshedAt, setRefreshedAt] = useState<Date | null>(null);
 
+  const activeServiceRatio = useMemo(() => {
+    if (!data?.kpis?.services) return null;
+    const total = data.kpis.services;
+    const active = data.kpis.activeServices ?? 0;
+    const ratio = total > 0 ? Math.min(100, Math.round((active / total) * 100)) : 0;
+    return { active, total, ratio };
+  }, [data]);
+
+  const backupCoverage = useMemo(() => {
+    if (data?.backup?.coverageRate === null || data?.backup?.coverageRate === undefined) return null;
+    return Math.min(100, Math.max(0, Math.round(data.backup.coverageRate)));
+  }, [data]);
+
   const loadOverview = async () => {
     setLoading(true);
     setLoadError(null);
@@ -291,74 +304,121 @@ export default function CustomerOverviewPage({ params }: { params: { customerId:
   return (
     <div className="flex flex-col gap-8" id="overview">
       {loadError && (
-        <div className="rounded-2xl border border-rose-500/40 bg-rose-500/10 p-4 text-sm text-rose-100 shadow-lg shadow-black/30">
-          Failed to load dashboard: {loadError}
+        <div className="rounded-3xl border border-rose-500/30 bg-gradient-to-r from-rose-900/60 via-rose-900/40 to-amber-800/40 p-4 text-sm text-rose-50 shadow-2xl shadow-black/30 ring-1 ring-rose-400/30">
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 text-base font-semibold text-rose-100">!
+            </span>
+            <div className="space-y-1">
+              <p className="font-semibold">We couldn&apos;t refresh this dashboard</p>
+              <p className="text-xs text-rose-50/80">
+                {loadError}. Try refreshing the snapshot or verifying the customer permissions.
+              </p>
+            </div>
+          </div>
         </div>
       )}
 
       {data?.errors?.length ? (
-        <div className="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-4 text-sm text-amber-100 shadow-lg shadow-black/30">
-          <p className="font-semibold">Partial data</p>
-          <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-amber-100">
-            {data.errors.map((err, index) => (
-              <li key={index}>{err}</li>
-            ))}
-          </ul>
+        <div className="rounded-3xl border border-amber-500/30 bg-gradient-to-r from-amber-900/60 via-amber-900/40 to-sky-900/40 p-4 text-sm text-amber-50 shadow-2xl shadow-black/30 ring-1 ring-amber-400/30">
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5 inline-flex h-8 w-8 items-center justify-center rounded-2xl bg-white/10 text-base font-semibold text-amber-100">
+              !
+            </span>
+            <div className="space-y-1">
+              <p className="font-semibold">Partial data (degraded)</p>
+              <p className="text-xs text-amber-50/80">We kept the data that still looks reliable while the rest is being retried.</p>
+              <ul className="mt-2 list-disc space-y-1 rounded-2xl bg-white/5 p-3 text-xs text-amber-50/90">
+                {data.errors.map((err, index) => (
+                  <li key={index}>{err}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       ) : null}
 
       <section
         aria-labelledby="customer-heading"
-        className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-sky-950/80 via-slate-950/70 to-slate-900/60 p-6 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:p-8"
+        className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_0%_0%,rgba(56,189,248,0.26),transparent_35%),radial-gradient(circle_at_90%_10%,rgba(168,85,247,0.22),transparent_30%),linear-gradient(120deg,rgba(15,23,42,0.7),rgba(8,47,73,0.85))] p-6 shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:p-8"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.18),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(168,85,247,0.16),transparent_30%)]" aria-hidden />
-        <div className="relative flex flex-col gap-6">
-          <div className="flex flex-wrap items-start justify-between gap-4">
-            <div className="space-y-2">
-              <p className="text-[11px] uppercase tracking-[0.24em] text-sky-200">Customer</p>
-              <h2 id="customer-heading" className="text-2xl font-semibold text-white">
-                {data?.customer?.name ?? params.customerId}
-              </h2>
+        <div className="absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" aria-hidden />
+        <div className="relative flex flex-col gap-8">
+          <div className="flex flex-wrap items-start justify-between gap-6">
+            <div className="space-y-3">
+              <p className="text-[11px] uppercase tracking-[0.24em] text-sky-200">AvePoint dashboard</p>
+              <div className="space-y-1">
+                <h2 id="customer-heading" className="text-3xl font-semibold text-white">
+                  {data?.customer?.name ?? params.customerId}
+                </h2>
+                <p className="max-w-2xl text-sm text-slate-200/80">
+                  Unified customer overview. Monitor services, tenants, protection coverage, baselines, and risk posture in one hyper-modern experience.
+                </p>
+              </div>
               <div className="flex flex-wrap items-center gap-2 text-xs text-slate-300">
                 <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">ID: {data?.customer?.id ?? '—'}</span>
                 <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Owner: {data?.customer?.ownerEmail ?? '—'}</span>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Region: {data?.customer?.country ?? '—'}</span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Region: {data?.customer?.country ?? 'Unknown region'}</span>
               </div>
             </div>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-col items-end gap-3">
               <StatusBadge status={data?.customer?.status ?? 'Unknown'}>{data?.customer?.status ?? 'Unknown'}</StatusBadge>
               <button
                 type="button"
                 onClick={loadOverview}
-                className="rounded-xl bg-gradient-to-r from-sky-500/80 via-indigo-500/80 to-fuchsia-500/80 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sky-900/50 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-sky-300"
+                className="relative inline-flex items-center gap-2 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-r from-sky-500/80 via-indigo-500/80 to-fuchsia-500/80 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-sky-900/50 transition hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-sky-300"
               >
-                Refresh snapshot
+                <span className="absolute inset-0 bg-white/10 opacity-0 transition hover:opacity-20" aria-hidden />
+                <span>Refresh snapshot</span>
               </button>
+              {refreshedAt && <p className="text-[11px] text-slate-200/70">Live at {refreshedAt.toLocaleTimeString()}</p>}
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Active services</p>
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:border-sky-400/40 hover:bg-sky-400/5">
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.18em] text-slate-400">
+                <span>Active services</span>
+                <span className="rounded-full bg-sky-500/20 px-2 py-0.5 text-[10px] text-sky-100">Live</span>
+              </div>
               <p className="mt-2 text-2xl font-semibold text-white">{data?.kpis?.activeServices?.toLocaleString?.() ?? '—'}</p>
               <p className="text-xs text-slate-400">Of {data?.kpis?.services?.toLocaleString?.() ?? '—'} total</p>
+              {activeServiceRatio && (
+                <div className="mt-3 h-2 rounded-full bg-white/10">
+                  <div
+                    className="h-2 rounded-full bg-gradient-to-r from-sky-400 to-indigo-400 shadow-lg"
+                    style={{ width: `${activeServiceRatio.ratio}%` }}
+                    aria-label="Active service ratio"
+                  />
+                </div>
+              )}
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:border-amber-400/40 hover:bg-amber-400/5">
               <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Risk rules</p>
               <p className="mt-2 text-2xl font-semibold text-white">{data?.kpis?.riskRules?.toLocaleString?.() ?? data?.riskRules?.length ?? '—'}</p>
               <p className="text-xs text-slate-400">Detections being monitored</p>
+              <div className="mt-3 text-[11px] text-amber-100/90">Keep an eye on trending detections before they spike.</div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:border-emerald-400/40 hover:bg-emerald-400/5">
               <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Backup coverage</p>
               <p className="mt-2 text-2xl font-semibold text-white">
                 {data?.backup?.coverageRate !== null && data?.backup?.coverageRate !== undefined ? `${data.backup.coverageRate}%` : 'Not reported'}
               </p>
               <p className="text-xs text-slate-400">Protected users vs seats</p>
+              {backupCoverage !== null && (
+                <div className="mt-3 h-2 rounded-full bg-white/10">
+                  <div
+                    className="h-2 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 shadow-lg"
+                    style={{ width: `${backupCoverage}%` }}
+                    aria-label="Backup coverage"
+                  />
+                </div>
+              )}
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20">
+            <div className="group rounded-2xl border border-white/10 bg-white/5 p-4 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:border-rose-400/40 hover:bg-rose-400/5">
               <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Jobs failed</p>
               <p className="mt-2 text-2xl font-semibold text-white">{data?.kpis?.jobsFailed?.toLocaleString?.() ?? '—'}</p>
               <p className="text-xs text-slate-400">Recent automation health</p>
+              <div className="mt-3 text-[11px] text-rose-100/90">Track disruption quickly with failure totals.</div>
             </div>
           </div>
         </div>
@@ -457,11 +517,20 @@ export default function CustomerOverviewPage({ params }: { params: { customerId:
         ) : data.baselines.length ? (
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {data.baselines.map((baseline) => (
-              <li key={baseline.baselineId} className="rounded-xl border border-white/5 bg-white/5 p-4 shadow-xl shadow-black/20">
-                <div className="flex items-center justify-between">
-                  <div>
+              <li
+                key={baseline.baselineId}
+                className="relative overflow-hidden rounded-xl border border-white/5 bg-gradient-to-br from-white/10 via-white/5 to-transparent p-4 shadow-xl shadow-black/20"
+              >
+                <div className="pointer-events-none absolute -right-6 -top-10 h-20 w-20 rotate-12 rounded-full bg-sky-400/20 blur-3xl" aria-hidden />
+                <div className="pointer-events-none absolute -left-12 -bottom-16 h-24 w-24 rounded-full bg-indigo-400/10 blur-3xl" aria-hidden />
+                <div className="relative flex items-start justify-between gap-3">
+                  <div className="space-y-1">
                     <p className="text-sm font-semibold text-white">{baseline.name}</p>
-                    <p className="text-xs text-slate-400">{baseline.baselineId}</p>
+                    <p className="text-[11px] text-slate-300/80">{baseline.baselineId}</p>
+                    <p className="text-[11px] text-sky-100/90">Baseline readiness</p>
+                    <div className="h-2 rounded-full bg-white/10">
+                      <div className="h-2 rounded-full bg-gradient-to-r from-sky-400 to-indigo-400" style={{ width: '100%' }} aria-hidden />
+                    </div>
                   </div>
                   <StatusBadge status={baseline.status}>{baseline.status}</StatusBadge>
                 </div>
