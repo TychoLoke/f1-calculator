@@ -17,13 +17,23 @@ function requiredEnv(name: string) {
   return value;
 }
 
+function resolveScope() {
+  return (
+    process.env.AOS_SCOPE ||
+    process.env.ELEMENTS_SCOPE ||
+    (() => {
+      throw new Error('Missing required environment variable: AOS_SCOPE');
+    })()
+  );
+}
+
 async function requestToken(): Promise<TokenResponse> {
   const tokenUrl = requiredEnv('AOS_TOKEN_URL');
   const body = new URLSearchParams({
     grant_type: 'client_credentials',
     client_id: requiredEnv('AOS_CLIENT_ID'),
     client_secret: requiredEnv('AOS_CLIENT_SECRET'),
-    scope: requiredEnv('AOS_SCOPE'),
+    scope: resolveScope(),
   });
 
   const response = await fetch(tokenUrl, {
