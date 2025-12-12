@@ -35,11 +35,13 @@ export async function GET(_: Request, { params }: { params: { customerId: string
   const errors: string[] = [];
 
   const [services, tenants, products, backupOverview, baselines, jobs] = await Promise.all([
-    safeFetch('Customer services', () =>
-      elementsFetch<typeof customerId, { items?: Array<{ serviceName?: string; status?: string }> }>(
-        SERVICE_BATCH_PATH,
-        { customerId },
-      ),
+    safeFetch(
+      'Customer services',
+      () =>
+        elementsFetch<{ customerId: string }, { items?: Array<{ serviceName?: string; status?: string }> }>(
+          SERVICE_BATCH_PATH,
+          { customerId },
+        ),
       errors,
     ),
     safeFetch(
