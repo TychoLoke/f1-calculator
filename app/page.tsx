@@ -18,41 +18,36 @@ type Baseline = {
   baselineId?: string;
   baselineName?: string;
   status?: string;
-  name?: string;
-};
-
-const formatDate = (value?: string | number | Date) => {
-  if (!value) return 'Unknown';
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? 'Unknown' : date.toLocaleString();
 };
 
 async function fetchList<T>(path: string): Promise<ApiList<T>> {
-  const response = await fetch(path, { cache: 'no-store' });
-  if (!response.ok) {
-    return { items: [], error: `Request failed: ${response.statusText}` };
+  try {
+    const response = await fetch(path, { cache: 'no-store' });
+    if (!response.ok) {
+      return { items: [], error: `Request failed: ${response.status} ${response.statusText}` };
+    }
+    return (await response.json()) as ApiList<T>;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown error';
+    return { items: [], error: message };
   }
-  return (await response.json()) as ApiList<T>;
 }
 
 export default function HomePage() {
   const [customers, setCustomers] = useState<ApiList<Customer>>({ items: [] });
   const [baselines, setBaselines] = useState<ApiList<Baseline>>({ items: [] });
-  const [loading, setLoading] = useState(true);
+  const [loadingCustomers, setLoadingCustomers] = useState(true);
+  const [loadingBaselines, setLoadingBaselines] = useState(true);
 
   useEffect(() => {
-    const load = async () => {
-      const [customerData, baselineData] = await Promise.all([
-        fetchList<Customer>('/api/customers'),
-        fetchList<Baseline>('/api/baselines'),
-      ]);
-
-      setCustomers(customerData);
-      setBaselines(baselineData);
-      setLoading(false);
-    };
-
-    load();
+    fetchList<Customer>('/api/customers').then((data) => {
+      setCustomers(data);
+      setLoadingCustomers(false);
+    });
+    fetchList<Baseline>('/api/baselines').then((data) => {
+      setBaselines(data);
+      setLoadingBaselines(false);
+    });
   }, []);
 
   return (
@@ -62,8 +57,8 @@ export default function HomePage() {
           <p className="eyebrow">AvePoint Elements Portal</p>
           <h1>Partner customer and baseline overview</h1>
           <p className="lead">
-            Data is served through secure server-side integrations. Tokens are cached on the server and refreshed automatically
-            using the OAuth2 client credentials flow.
+            All AvePoint Elements requests are executed server-side through secure API routes that use OAuth2
+            client credentials with server-only secrets.
           </p>
           <div className="callouts">
             <div>
@@ -87,19 +82,27 @@ export default function HomePage() {
             </div>
             {customers.error && <span className="badge badge--error">{customers.error}</span>}
           </div>
-          {loading ? (
+          {loadingCustomers ? (
             <p className="muted">Loading customers…</p>
           ) : customers.items.length ? (
-            <ul className="list">
-              {customers.items.map((customer, index) => (
-                <li key={`${customer.customerId ?? customer.customerName ?? index}`} className="list__item">
-                  <div>
-                    <h3>{customer.customerName ?? customer.name ?? 'Unnamed customer'}</h3>
-                    <p className="muted">ID: {customer.customerId ?? 'Unknown'}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <div className="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Customer ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {customers.items.map((customer, index) => (
+                    <tr key={`${customer.customerId ?? customer.customerName ?? index}`}>
+                      <td>{customer.customerName ?? customer.name ?? 'Unnamed customer'}</td>
+                      <td className="muted">{customer.customerId ?? 'Unknown'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ) : (
             <p className="muted">No customers returned.</p>
           )}
@@ -113,24 +116,29 @@ export default function HomePage() {
             </div>
             {baselines.error && <span className="badge badge--error">{baselines.error}</span>}
           </div>
-          {loading ? (
+          {loadingBaselines ? (
             <p className="muted">Loading baselines…</p>
           ) : baselines.items.length ? (
-            <ul className="list">
-              {baselines.items.map((baseline, index) => (
-                <li key={`${baseline.baselineId ?? baseline.baselineName ?? index}`} className="list__item">
-                  <div>
-                    <h3>{baseline.baselineName ?? baseline.name ?? 'Unnamed baseline'}</h3>
-                    <p className="muted">
-                      ID: {baseline.baselineId ?? 'Unknown'} • Status: {baseline.status ?? 'Unknown'}
-                    </p>
-                  </div>
-                  {baseline && 'lastModified' in baseline && (
-                    <span className="muted">{formatDate((baseline as { lastModified?: string }).lastModified)}</span>
-                  )}
-                </li>
-              ))}
-            </ul>
+            <div className="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Baseline ID</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {baselines.items.map((baseline, index) => (
+                    <tr key={`${baseline.baselineId ?? baseline.baselineName ?? index}`}>
+                      <td>{baseline.baselineName ?? 'Unnamed baseline'}</td>
+                      <td className="muted">{baseline.baselineId ?? 'Unknown'}</td>
+                      <td>{baseline.status ?? 'Unknown'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ) : (
             <p className="muted">No baselines returned.</p>
           )}

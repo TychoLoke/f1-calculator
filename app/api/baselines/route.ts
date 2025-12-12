@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { callElementsApi, normalizeItems } from '../_utils/avepoint';
+import { elementsFetch } from '../../../lib/elementsClient';
 
 type Baseline = {
   baselineId?: string;
@@ -8,27 +8,34 @@ type Baseline = {
   [key: string]: unknown;
 };
 
+type BaselineBatchResponse = {
+  items?: Baseline[];
+  data?: Baseline[];
+  totalCount?: number;
+};
+
+const BASELINES_PATH = '/partner/external/v3/bm/baselines/batch';
+const PAGE_SIZE = 100;
+
 export const dynamic = 'force-dynamic';
+
+function extractItems(payload: BaselineBatchResponse) {
+  if (Array.isArray(payload.items)) return payload.items;
+  if (Array.isArray(payload.data)) return payload.data;
+  return [] as Baseline[];
+}
 
 export async function GET() {
   try {
-    const response = await callElementsApi<Record<string, unknown>>(
-      '/partner/external/v3/bm/baselines/batch',
-      {
-        pageIndex: 1,
-        pageSize: 50,
-      },
-    );
+    const requestBody = { pageIndex: 1, pageSize: PAGE_SIZE };
+    const response = await elementsFetch<typeof requestBody, BaselineBatchResponse>(BASELINES_PATH, requestBody);
 
-    const items = normalizeItems<Baseline>(response);
-    const totalCount =
-      typeof (response as { totalCount?: number }).totalCount === 'number'
-        ? (response as { totalCount?: number }).totalCount
-        : items.length;
+    const items = extractItems(response);
+    const totalCount = typeof response.totalCount === 'number' ? response.totalCount : items.length;
 
     return NextResponse.json({ items, totalCount });
   } catch (error) {
-    console.error('Failed to fetch baselines', error);
+    console.error('Failed to fetch baselines batch', error);
     return NextResponse.json({ items: [], error: 'Unable to fetch baselines' }, { status: 500 });
   }
 }
