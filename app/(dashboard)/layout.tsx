@@ -4,27 +4,26 @@ import Link from 'next/link';
 
 export default function DashboardRootLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="relative min-h-screen bg-[#050915] text-slate-50">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-        <div className="absolute -left-24 -top-32 h-96 w-96 rounded-full bg-gradient-to-br from-[#ff5f6d]/20 via-[#5b8bff]/16 to-[#7c3aed]/14 blur-3xl" />
-        <div className="absolute right-8 top-24 h-72 w-72 rounded-full bg-gradient-to-br from-[#5b8bff]/12 via-[#7c3aed]/14 to-[#ff5f6d]/16 blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-[#7c3aed]/12 via-[#5b8bff]/10 to-[#ff5f6d]/10 blur-3xl" />
-      </div>
-
+    <div className="relative min-h-screen bg-[#050814] text-slate-50">
       <div className="relative mx-auto flex min-h-screen max-w-7xl flex-col gap-8 px-4 pb-12 pt-8 sm:px-6 lg:px-8">
-        <header className="flex flex-col gap-4 rounded-2xl border border-white/5 bg-white/5/60 p-4 backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between">
+        <header className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-[#0a0f1c] p-4 shadow-[0_10px_50px_-35px_rgba(0,0,0,0.9)] sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.24em] text-slate-400">AvePoint Elements</p>
-            <div className="mt-1 flex items-center gap-2 text-lg font-semibold text-white">
-              <span className="rounded-md bg-gradient-to-r from-[#ff5f6d] via-[#5b8bff] to-[#7c3aed] px-2 py-1 text-xs uppercase tracking-wide text-white shadow-lg shadow-black/30">
-                MSP
+            <div className="mt-1 flex flex-wrap items-center gap-2 text-lg font-semibold text-white">
+              <span className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-xs uppercase tracking-wide text-slate-200">
+                MSP Control Plane
               </span>
-              Control Plane
+              <span className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-400">
+                Global dashboard
+              </span>
             </div>
             <p className="max-w-2xl text-sm text-slate-300">Unified visibility across customer tenants, backup coverage, and job health.</p>
           </div>
           <nav className="flex items-center gap-3 text-sm text-slate-200">
-            <Link className="rounded-lg border border-white/10 px-3 py-2 transition hover:border-white/30 hover:text-white" href="/customers">
+            <Link
+              className="flex items-center gap-2 rounded-lg border border-white/10 bg-gradient-to-r from-[#ff5f6d] via-[#5b8bff] to-[#7c3aed] px-3 py-2 text-white shadow-[0_10px_40px_-30px_rgba(91,139,255,0.6)]"
+              href="/customers"
+            >
               Dashboard
             </Link>
             <a
