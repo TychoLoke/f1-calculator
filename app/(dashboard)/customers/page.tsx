@@ -160,21 +160,8 @@ export default async function CustomersPage() {
         </section>
 
         <section className="grid gap-6 xl:grid-cols-2">
-          <Panel
-            title="Job health"
-            subtitle="Status distribution across latest runs"
-            actions={<span className="text-xs text-slate-400">{allJobs.length.toLocaleString()} jobs tracked</span>}
-          >
-            <JobHealthChart data={jobHealthData} />
-          </Panel>
-
-          <Panel
-            title="Backup coverage"
-            subtitle="Scanned vs protected objects by module"
-            actions={<span className="text-xs text-slate-400">{coverageData.length} services represented</span>}
-          >
-            <BackupCoverageChart data={coverageData} />
-          </Panel>
+          <JobHealthChart data={jobHealthData} />
+          <BackupCoverageChart data={coverageData} />
         </section>
 
         <section>
