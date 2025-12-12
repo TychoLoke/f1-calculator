@@ -115,9 +115,37 @@ function normalizeArray<T>(payload: unknown): T[] {
   return [] as T[];
 }
 
-function normalizeStatus(value?: string | null) {
-  if (!value) return 'Unknown';
-  return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+function toTitleCase(value: string) {
+  return value
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => `${part.charAt(0).toUpperCase()}${part.slice(1).toLowerCase()}`)
+    .join(' ');
+}
+
+function normalizeStatus(value?: unknown) {
+  if (value == null) return 'Unknown';
+
+  const asString =
+    typeof value === 'string'
+      ? value
+      : Array.isArray(value)
+        ? value.join(', ')
+        : typeof value === 'object'
+          ? JSON.stringify(value)
+          : String(value);
+
+  const trimmed = asString.trim();
+  if (!trimmed) return 'Unknown';
+
+  return `${trimmed.charAt(0).toUpperCase()}${trimmed.slice(1).toLowerCase()}`;
+}
+
+function friendlyCustomerName(customerId: string, index: number) {
+  if (!customerId) return `Customer ${index + 1}`;
+  const cleaned = customerId.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!cleaned) return `Customer ${index + 1}`;
+  return toTitleCase(cleaned);
 }
 
 export async function fetchCustomers(pageSize = 200): Promise<{ items: CustomerSummary[]; total: number }> {
@@ -131,7 +159,7 @@ export async function fetchCustomers(pageSize = 200): Promise<{ items: CustomerS
     response,
   ).map((customer, index) => ({
     id: customer.customerId ?? `customer-${index + 1}`,
-    name: customer.customerName ?? 'Customer',
+    name: customer.customerName?.trim() || friendlyCustomerName(customer.customerId ?? '', index),
     ownerEmail: customer.ownerEmail ?? '—',
     region: customer.country ?? 'Unknown region',
     status: normalizeStatus(customer.status),
@@ -205,7 +233,7 @@ export async function fetchCustomerOverview(customerId: string): Promise<Custome
   const normalizedCustomer: CustomerSummary = customerItems[0]
     ? {
         id: customerItems[0].customerId ?? customerId,
-        name: customerItems[0].customerName ?? 'Customer',
+        name: customerItems[0].customerName?.trim() || friendlyCustomerName(customerItems[0].customerId ?? customerId, 0),
         ownerEmail: customerItems[0].ownerEmail ?? '—',
         region: customerItems[0].country ?? 'Unknown region',
         status: normalizeStatus(customerItems[0].status),
