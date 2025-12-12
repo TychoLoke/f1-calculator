@@ -1,14 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
-import { ReactNode } from 'react';
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import { ChangeEvent, ReactNode, useEffect, useMemo, useState } from 'react';
 
 const navItems = [
   { label: 'Overview', href: (id: string) => `/customers/${id}` },
+  { label: 'Services', href: (id: string) => `/customers/${id}#services` },
   { label: 'Tenants', href: (id: string) => `/customers/${id}#tenants` },
   { label: 'Backup', href: (id: string) => `/customers/${id}#backup` },
   { label: 'Baselines', href: (id: string) => `/customers/${id}#baselines` },
+  { label: 'Scans', href: (id: string) => `/customers/${id}#scans` },
+  { label: 'Risk', href: (id: string) => `/customers/${id}#risk` },
   { label: 'Jobs', href: (id: string) => `/customers/${id}#jobs` },
 ];
 
@@ -21,7 +24,43 @@ function getCustomerIdFromParams(params: Record<string, string | string[] | unde
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const params = useParams<Record<string, string>>();
   const pathname = usePathname();
+  const router = useRouter();
   const customerId = getCustomerIdFromParams(params ?? {});
+  const [customers, setCustomers] = useState<Array<{ id: string; name: string }>>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const loadCustomers = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/api/customers', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Unable to load customers');
+        const payload = (await response.json()) as { items?: Array<{ customerId?: string; customerName?: string; name?: string }> };
+        const mapped = (payload.items ?? []).map((item, index) => ({
+          id: item.customerId ?? item.name ?? `customer-${index + 1}`,
+          name: item.customerName ?? item.name ?? item.customerId ?? `Customer ${index + 1}`,
+        }));
+        setCustomers(mapped);
+      } catch (error) {
+        console.error('Failed to load customers list', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadCustomers();
+  }, []);
+
+  const customerOptions = useMemo(() => {
+    if (!customers.length) return [{ id: customerId, name: customerId }];
+    if (customers.some((c) => c.id === customerId)) return customers;
+    return [{ id: customerId, name: customerId }, ...customers];
+  }, [customerId, customers]);
+
+  const handleCustomerChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    const nextId = event.target.value;
+    router.push(`/customers/${nextId}`);
+  };
 
   return (
     <div className="min-h-screen text-slate-100 bg-transparent flex">
@@ -53,7 +92,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             <div>
               <p className="text-xs uppercase tracking-[0.18em] text-sky-300">AvePoint Dashboard</p>
               <h1 className="text-xl font-semibold text-white">Unified customer overview</h1>
-              <p className="text-sm text-slate-400">Monitor tenants, backup protection, baselines, and jobs.</p>
+              <p className="text-sm text-slate-400">Monitor services, tenants, backup protection, baselines, scans, and risk.</p>
             </div>
             <div className="flex items-center gap-2">
               <label className="text-xs text-slate-400" htmlFor="customer">
@@ -62,10 +101,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               <select
                 id="customer"
                 className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-white shadow-inner shadow-black/20 focus:border-sky-400 focus:outline-none"
-                defaultValue={customerId}
-                disabled
+                value={customerId}
+                onChange={handleCustomerChange}
+                disabled={loading}
               >
-                <option value="MockMSP">MockMSP</option>
+                {customerOptions.map((customer) => (
+                  <option key={customer.id} value={customer.id}>
+                    {customer.name}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
